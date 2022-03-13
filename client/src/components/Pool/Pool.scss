@@ -1,0 +1,143 @@
+@import "../../styles/mixins.scss";
+
+.pool {
+  padding: 2rem 20rem;
+  font-family: "Roboto", sans-serif;
+
+  .label-container {
+    margin-bottom: 1rem;
+    display: flex;
+    .labels {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+
+      .name-label {
+        width: 200px;
+        display: flex;
+        align-items: center;
+      }
+      .record-label {
+        width: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .matchups {
+        display: flex;
+        width: 100%;
+
+        .label-box {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          p {
+            margin: 0.1rem 0;
+          }
+          .score {
+            font-size: 0.8rem;
+            font-weight: bold;
+          }
+          .winner {
+            color: rgb(52, 95, 236);
+            font-weight: bold;
+          }
+          .losing {
+            color: black;
+          }
+        }
+      }
+    }
+  }
+  .all-picks {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    .user-pick-box {
+      display: flex;
+      position: relative;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      
+      .user {
+        width: 200px;
+        .user-email {
+          width: 100%;
+          display: flex;
+        }
+        .record {
+          font-size: 1.5rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+      .user-pick {
+        display: flex;
+        width: 100%;
+        .winner {
+          background-color: #baebc5;
+          width: 55px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          border: 1px solid lightgray;
+          img {
+            width: 45px;
+          }
+        }
+        .loser {
+          background-color: #fdc5ca;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          border: 1px solid lightgray;
+
+          img {
+            width: 45px;
+          }
+        }
+        .picked-logo {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid lightgray;
+
+          img {
+            width: 45px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// LAPTOP SIZE
+@include laptop {
+  .pool {
+    padding: 8rem;
+    
+    
+  }
+}
+
+// PHONE SIZE
+@include phone {
+  .pool {
+    padding: 2rem;
+    overflow-x: auto;
+    .all-picks,
+    .label-container {
+      width: 1000px;
+      
+    }
+  }
+}

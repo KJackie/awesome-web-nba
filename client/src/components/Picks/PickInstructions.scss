@@ -1,0 +1,67 @@
+@import "../../styles/mixins.scss";
+
+
+.content {
+ width: 100%;
+ padding: 1rem 0;
+ 
+ .content-date {
+  font-size: 2.6rem;
+  font-family: "Oswald", sans-serif;
+
+  span {
+   font-weight: bold;
+   font-size: 4rem;
+  }
+  margin-bottom: 2rem;
+ }
+ .instructions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-family: "Roboto";
+
+  p {
+   font-size: 1.4rem;
+  }
+ }
+}
+
+
+// LAPTOP SIZE
+@include laptop {
+ .content {
+  .content-date {
+   font-size: 2.2rem;
+   span {
+    font-size: 3.2rem;
+   }
+  }
+  .instructions {
+   width: 90%;
+   p {
+    font-size: 1.2rem;
+   }
+  }
+ }
+}
+
+// PHONE SIZE
+@include phone {
+ .content {
+  .content-date {
+   font-size: 2rem;
+   span {
+    font-size: 3.2rem;
+   }
+  }
+  .instructions {
+   width: 100%;
+   p {
+    font-size: 1rem;
+    font-family: "Roboto", sans-serif;
+
+   }
+  }
+ }
+}

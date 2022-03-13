@@ -1,0 +1,223 @@
+@import "../../styles/mixins.scss";
+
+.make-picks-page {
+  padding: 0rem 20rem;
+  position: relative;
+  justify-content: center;
+  .make-picks-content {
+    width: 100%;
+    display: flex;
+    .instructions-section {
+      width: 35%;
+    }
+    .games-container {
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      position: relative;
+      height: 70vh;
+      width: 65%;
+      margin-top: 2rem;
+
+      /* width */
+      &::-webkit-scrollbar {
+        width: 10px;
+      }
+      /* Track */
+      &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey;
+        border-radius: 10px;
+      }
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: rgb(155, 154, 154);
+        border-radius: 10px;
+      }
+      /* Handle on hover */
+      &::-webkit-scrollbar-thumb:hover {
+        background: #1b49c9;
+      }
+      input {
+        display: none;
+      }
+      .games-box {
+        width: 100%;
+        display: flex;
+        font-family: "Roboto", sans-serif;
+
+        .game {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          flex-shrink: 0;
+          padding: 1rem;
+          justify-content: space-evenly;
+          .highlight {
+            background: #ffffaa;
+            color: black;
+          }
+          .no-pick {
+            background-color: #e2e2e4;
+            &:hover {
+              cursor: not-allowed;
+            }
+          }
+
+          .box {
+            height: 70px;
+            width: 40%;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            padding: 1rem;
+            cursor: pointer;
+            border: 1px solid lightgray;
+
+            &:hover {
+              box-shadow: none;
+              transition: all 100ms ease-in-out;
+            }
+          }
+          .logo {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            width: 20%;
+            justify-content: center;
+            margin-right: 1rem;
+            .team-logo {
+              max-width: 50px;
+            }
+          }
+          .abbr {
+            display: none;
+          }
+          .team-id {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 55%;
+            p {
+              font-size: 0.9rem;
+            }
+          }
+          .record {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 20%;
+            margin-left: auto;
+            p {
+              font-size: 0.85rem;
+            }
+          }
+        }
+      }
+      .btn-container {
+        width: 100%;
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .add-btn {
+          background-color: black;
+          color: white;
+          width: 80%;
+          height: 60px;
+          font-family: "Roboto", sans-serif;
+        }
+      }
+    }
+  }
+}
+
+// LAPTOP SIZE
+@include laptop {
+  .make-picks-page {
+    padding: 0rem 8rem;
+  }
+}
+
+// MOBILE SIZE
+@include macbook {
+  .make-picks-page {
+    padding: 0rem 8rem;
+    flex-direction: column;
+    .instructions-section {
+      width: 100%;
+    }
+    .games-container {
+      width: 100%;
+      height: 100%;
+      .games-box {
+        .game {
+          justify-content: space-between;
+          padding: 1rem 0;
+        }
+        .box {
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
+// PHONE SIZE
+@include phone {
+  .make-picks-page {
+    flex-direction: column;
+    padding: 0 2rem;
+    .make-picks-content {
+      display: flex;
+      flex-direction: column;
+      .instructions-section {
+        width: 100%;
+      }
+      .games-container {
+        width: 100%;
+        height: 100%;
+        .games-box {
+          .game {
+            justify-content: space-between;
+            padding: 1rem 0;
+          }
+
+          .box {
+            width: 50%;
+            justify-content: center;
+            .record,
+            .home-away {
+              display: none;
+            }
+            .team-id {
+              max-width: 40%;
+              display: flex;
+              align-items: center;
+            }
+            .logo {
+              min-width: 40%;
+              img {
+                min-width: 50px;
+              }
+            }
+          }
+          .no-pick {
+            .team-id {
+              display: none;
+            }
+            .abbr {
+              display: block;
+            }
+          }
+          .game-info {
+            font-size: 0.7rem;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}

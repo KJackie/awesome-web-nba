@@ -1,0 +1,143 @@
+@import "../../../styles/mixins.scss";
+
+
+.expand-container {
+  display: flex;
+  width: 100%;
+  position: relative;
+  flex-direction: column;
+  .expand-labels {
+    width: 100%;
+    display: flex;
+    font-size: 1.4rem;
+    font-family: "Oswald", sans-serif;
+    margin-bottom: 1rem;
+    .bs-label {
+      width: 69%;
+    }
+    .sl-label {
+      width: 35%;
+      margin-left: auto;
+    }
+  }
+  .expand-content {
+    display: flex;
+    border-top: 1px solid lightgray;
+    padding: 2rem 0;
+    .box-score {
+      text-transform: uppercase;
+      font-family: "Oswald", sans-serif;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      position: relative;
+      .labels {
+        margin-bottom: 0.5rem;
+        display: flex;
+        .team-name {
+          margin-right: 1rem;
+          padding-bottom: 0.5rem;
+          border-bottom: 1px solid lightgray;
+        }
+        .quarter-labels {
+          display: flex;
+          gap: 1rem;
+          padding-bottom: 0.5rem;
+          border-bottom: 1px solid lightgray;
+          p {
+            width: 20px;
+          }
+        }
+      }
+      .boxscore-inner {
+        display: flex;
+      }
+      .team-labels {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-right: 1rem;
+      }
+      .quarters {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        .away-quarters,
+        .home-quarters {
+          display: flex;
+          gap: 1rem;
+          p {
+            width: 20px;
+            text-align: center;
+          }
+        }
+      }
+    }
+    .leaders {
+      display: flex;
+      width: 80%;
+      justify-content: space-evenly;
+      .home-leader,
+      .away-leader {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        img {
+          max-width: 140px;
+          margin-bottom: 0.25rem;
+        }
+        p {
+          text-align: left;
+          font-family: "Oswald", sans-serif;
+        }
+      }
+    }
+  }
+}
+
+
+// PHONE SIZE
+@include phone {
+  .expand-container {
+    .expand-content {
+      flex-direction: column;
+      align-items: center;
+      .box-score {
+        width: 100%;
+        margin-bottom: 2rem;
+        .labels {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          .quarter-labels {
+            width: 80%;
+            justify-content: space-evenly;
+            text-align: center;
+          }
+        }
+        .boxscore-inner {
+          width: 100%;
+          justify-content: space-between;
+          .quarters {
+            width: 80%;
+            .home-quarters,
+            .away-quarters {
+              justify-content: space-evenly;
+            }
+          }
+        }
+      }
+      .leaders {
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        display: none;
+        img {
+          display: none;
+        }
+      }
+     
+    }
+  }
+}

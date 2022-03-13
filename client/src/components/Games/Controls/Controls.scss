@@ -1,0 +1,23 @@
+.control-container {
+  padding: 0.5rem 1rem;
+  .date-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 75px;
+    position: relative;
+   
+    .changer {
+      font-size: 1.6rem;
+      height: 75px;
+      cursor: pointer;
+    }
+    .control-date {
+      font-size: 1.8rem;
+      font-family: "Oswald", sans-serif;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+  }
+}

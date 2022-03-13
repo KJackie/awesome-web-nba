@@ -1,0 +1,208 @@
+@import "../../styles/mixins.scss";
+
+.home-nav {
+  width: 100%;
+  padding: 3rem 20rem;
+  display: flex;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  position: relative;
+  .user-sub-nav {
+    position: absolute;
+    right: 20rem;
+    top: 6rem;
+  }
+  .hide {
+    display: none;
+  }
+  .desktop-links {
+    display: block;
+  }
+  .brand,
+  .user-info {
+    width: 20%;
+    line-height: 1.8rem;
+    height: 100%;
+    display: flex;
+    margin-right: 1rem;
+
+    .sign-btn {
+      background-color: #2f24d3;
+      color: white;
+      padding: 0.5rem 1rem;
+      margin-left: 1rem;
+      border-radius: 5px;
+      font-weight: lighter;
+      cursor: pointer;
+    }
+  }
+  .dropdown {
+    display: none;
+  }
+  .nav-links,
+  .desktop-links {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    ul {
+      display: flex;
+      gap: 1rem;
+      margin-left: auto;
+    }
+  }
+  .user-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    .down-arrow {
+      margin-left: 0.5rem;
+    }
+    p {
+      background-color: #2f24d3;
+      padding: 0.5rem 0.75rem;
+      color: white;
+      text-transform: uppercase;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      margin-left: auto;
+    }
+    .burger {
+      font-size: 1.5rem;
+      margin-left: auto;
+      cursor: pointer;
+      margin-right: 2rem;
+    }
+    .mobile-burger {
+      display: none;
+    }
+  }
+}
+
+// LAPTOP SIZE 
+@include laptop {
+  .home-nav {
+    padding: 2rem 8rem;
+    .user-sub-nav {
+      right: 8rem;
+    }
+    .brand {
+      width: 45%;
+    }
+    .desktop-links {
+      width: 100%;
+    }
+    .nav-links {
+      display: block;
+      margin-left: auto;
+      display: flex;
+      justify-content: flex-end;
+    }
+    .user-info {
+      margin-left: auto;
+      width: 45%;
+      p {
+        font-size: 0.8rem;
+        margin-left: auto;
+      }
+    }
+  }
+}
+
+// PHONE SIZE
+@include phone {
+  .home-nav {
+    padding: 1rem 0rem;
+    position: relative;
+    align-items: center;
+    .user-sub-nav {
+      width: 100%;
+      right: 0;
+      padding: 1rem 2rem;
+    }
+    .brand {
+      width: 45%;
+      margin-left: 2rem;
+    }
+    .desktop-links {
+      display: none;
+    }
+    .nav-links {
+      display: block;
+    }
+    .dropdown {
+      width: 100vw;
+      transition: all 100ms ease-in-out;
+      position: relative;
+      background-color: #fff;
+      position: absolute;
+      top: 105px;
+      z-index: 9999;
+      display: block;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 10px 0px;
+      .links {
+        display: block;
+        padding: 0;
+        ul {
+          display: flex;
+          flex-direction: column;
+          font-size: 1rem;
+          height: 100%;
+          background-color: #fff;
+          gap: 0;
+          a {
+            border-top: 1px solid lightgray;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            font-weight: lighter;
+            padding-left: 2rem;
+            &:hover {
+              background-color: #f7f8fa;
+            }
+          }
+          .last {
+            border-bottom: 1px solid lightgray;
+          }
+        }
+      }
+    }
+    .user-info {
+      margin-left: auto;
+      width: 50%;
+      display: flex;
+      justify-content: space-between;
+      margin-right: 2rem;
+      height: 100%;
+      align-items: center;
+      .mobile-burger {
+        display: block;
+        font-size: 1.4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      p {
+        font-size: 0.8rem;
+        margin-left: auto;
+      }
+      .register {
+        display: flex;
+        width: 100%;
+        a {
+          background-color: #2f24d3;
+          color: white;
+          padding: 0.4rem 1rem;
+          font-weight: lighter;
+          text-transform: uppercase;
+          margin-left: auto;
+          border-radius: 5px;
+          width: 120px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}

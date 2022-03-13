@@ -1,0 +1,42 @@
+@mixin btn() {
+  padding: 0.5rem;
+  border-radius: 4px;
+  background-color: black;
+  color: white;
+  padding: 10px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: lighter;
+  &:hover {
+    box-shadow: var(--box-shadow);
+  }
+}
+
+@mixin link() {
+  color: var(--link-color);
+  font-weight: bold;
+}
+
+@mixin card() {
+  border-radius: 4px;
+}
+
+@mixin phone {
+  @media only screen and (max-width: 856px) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media only screen and (max-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin macbook {
+  @media only screen and (max-width: 1280px) {
+    @content;
+  }
+}

@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+@import "./variables.scss";
+@import './mixins.scss';
+@import './forms.scss';
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Roboto&display=swap');
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+.App {
+ background-color: #1270ce;
+ width: 100vw;
+ height: 100vh;
+ position: relative;
+}
+
+
+@media only screen and (max-width: 900px) {
+.App {
+  padding: 0;
+}
+}
+
+button {
+  border: unset;
+  background: unset;
+  font: unset;
+  color: unset;
+  cursor: pointer;
+}
+
+a {
+ color: unset;
+ text-decoration: unset;
+ @include link()
+}
+
+input, textarea {
+  color: unset;
+  background: unset;
+  font: unset;
+  border: unset;
+  border: 1px solid lightgray;
+}
