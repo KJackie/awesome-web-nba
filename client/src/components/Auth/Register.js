@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import UserContext from "../../context/UserContext";
@@ -48,19 +48,11 @@ function Register() {
     history.push("/");
   }
 
-
-
   function selectTeam() {
     let favTeam = document.getElementById('fav-team').value;
     setFormFavTeam(favTeam)
 
   }
-
-
-
-
- 
-
 
   return (
     <div className="register-page">

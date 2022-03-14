@@ -30,7 +30,6 @@ function Navbar() {
   }
 
   const [mobileNav, setMobileNav] = useState(false);
-
   const [userNav, setUserNav] = useState(false);
 
   return (

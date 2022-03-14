@@ -3,9 +3,6 @@ import "./News.scss";
 import domain from "../../util/domain";
 function News() {
   const [news, setNews] = useState([]);
-
-  const [gameAPI, setGameAPI] = useState([])
-
   useEffect(() => {
     fetch(`${domain}/news`)
       .then((res) => res.json())
@@ -13,10 +10,6 @@ function News() {
         setNews(data.articles);
       });
   }, []);
-
-
-
-
   return (
     <div className="news-container">
       {news.map((item, index) => {

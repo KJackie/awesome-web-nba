@@ -10,13 +10,12 @@ dotenv.config();
 // set up express server
 const app = express();
 const PORT = process.env.PORT || 3333;
-
 app.use(express.json());
 
-app.use(express.json());
+// cors
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://poolhost.netlify.app"],
+    origin: ["http://localhost:3000", "https://www.nbapickem.org/"],
     credentials: true,
   })
 );
@@ -24,9 +23,7 @@ app.use(cookieParser());
 
 app.use("/picks", require("./routers/userPicksRouter"));
 app.use("/pool", require("./routers/poolRouter"));
-
 app.use("/auth", require("./routers/userRouter"));
-
 app.use("/loggedIn", require("./routers/loggedInRouter"));
 
 // connect to mongodb
@@ -49,20 +46,18 @@ app.get("/gamebar", async (req, res) => {
   const response = await axios.get(
     "https://api.nflpickwatch.com/v1/general/games/2021/142/nba"
   );
-  const news = response.data;
-  res.status(200).send(news);
+  const data = response.data;
+  res.status(200).send(data);
 });
 
-// DISPLAY GAMES API
-
+// GAMES API
 app.get("/games", async (req, res) => {
   const response = await axios.get(
     "https://site.web.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?region=us&lang=en&contentorigin=espn&limit=100&calendartype=blacklist&includeModules=videos%2Ccards&dates=20220310&tz=America%2FNew_York&buyWindow=1m&showAirings=buy%2Clive&showZipLookup=true"
   );
-  const news = response.data;
-  res.status(200).send(news);
+  const data = response.data;
+  res.status(200).send(data);
 });
-
 // NEWS API
 app.get("/news", async (req, res) => {
   const response = await axios.get(
@@ -71,18 +66,14 @@ app.get("/news", async (req, res) => {
   const news = response.data;
   res.status(200).send(news);
 });
-
-//https://fcast.espncdn.com/FastcastService/pubsub/profiles/12000/topic/event-basketball-nba/message/2309331/checkpoint
-
+// SCHEDULE API
 app.get("/schedule", async (req, res) => {
   const response = await axios.get(
     "https://datacrunch.9c9media.ca/statsapi/sports/basketball/leagues/nba/scoreboard?brand=tsn"
   );
-
-  const news = response.data;
-  res.status(200).send(news);
+  const data = response.data;
+  res.status(200).send(data);
 });
-
 app.listen(PORT, () =>
   console.log(`Hello Master Bweem, the server is running on ${PORT}.`)
 );

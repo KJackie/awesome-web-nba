@@ -5,14 +5,11 @@ import UserContext from "../../context/UserContext";
 import DemoLogin from "../Auth/DemoLogin";
 function Home() {
   const { user } = useContext(UserContext);
-
   return (
     <div className="home-page">
       <div className="title">
         <div className="home-text">
-          {/* <h1> Daily NBA Pick'em </h1> */}
           <h1>
-            {" "}
             Daily NBA <br /> Pick 'em Pool
           </h1>
           <p> Make picks and compete.</p>
@@ -39,14 +36,14 @@ function Home() {
           )}
         </div>
       </div>
-      <div className="guest-login">
-        <p> Sign in as a guest and check out the site before signing up.</p>
-        <DemoLogin />
-      </div>
-      {/* <div className="image">
-        <img src="../images/guy.png" alt="" />
-        
-      </div> */}
+      {!user && (
+        <div className="guest-login">
+          <p>
+            Sign in as a Guest to quickly check out the site before signing up.
+          </p>
+          <DemoLogin />
+        </div>
+      )}
     </div>
   );
 }

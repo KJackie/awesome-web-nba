@@ -1,13 +1,12 @@
 import axios from "axios";
 import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { Link } from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import ErrorMessage from "../misc/ErrorMessage";
 import "./AuthForm.scss";
 import "./AuthPages.scss"
 import domain from '../../util/domain'
-
+import './DemoLogin.scss'
 function Login() {
   const [demoFormEmail, setDemoFormEmail] = useState("");
   const [demoFormPassword, setDemoFormPassword] = useState("");
@@ -67,7 +66,7 @@ function Login() {
             />
           </div>
 
-          <button className="submit-btn" type="submit">
+          <button className="demo-submit-btn" type="submit">
             Continue as Guest
           </button>
         </form>

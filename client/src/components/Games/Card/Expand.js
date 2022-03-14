@@ -3,8 +3,6 @@ import "./Expand.scss";
 
 function Expand({ data }) {
 
-
-
   var away = data.competitions[0].competitors[0];
   var home = data.competitions[0].competitors[1];
   var homeLeader = data.competitions[0].competitors[1].leaders[0].leaders[0];
@@ -12,10 +10,6 @@ function Expand({ data }) {
 
   return (
     <div className="expand-container">
-      {/* <div className="expand-labels">
-        <p className="sl-label"> Scoring leaders </p>
-      </div> */}
-
       <div className="expand-content">
         {/* BOX SCORE */}
         <div className="box-score">

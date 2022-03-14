@@ -1,13 +1,10 @@
-import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import "./MakePicks.scss";
 import $ from "jquery";
 import PickInstructions from "./PickInstructions";
-import domain from "../../util/domain";
-import UserContext from "../../context/UserContext";
-import axios from "axios";
 import PicksPopup from "../Popup/PicksPopup";
 import PickBox from "./PickBox/PickBox";
+
 function MakePicks({ data, pick, setPick, addPicks, sortedGames }) {
   const [locked, setLocked] = useState(true);
   const [popUp, setPopUp] = useState(false);
@@ -30,12 +27,6 @@ function MakePicks({ data, pick, setPick, addPicks, sortedGames }) {
     });
   });
 
-  // filters
-  const [showRecord, setShowRecord] = useState(true);
-  const [showStreak, setShowStreak] = useState(false);
-  const [showFav, setShowFav] = useState(false);
-  const [showMoney, setShowMoney] = useState(false);
-
   return (
     <div className="make-picks-page">
       {/* SHOW POPUP AFTER CHOOSING PICKS */}
@@ -50,7 +41,7 @@ function MakePicks({ data, pick, setPick, addPicks, sortedGames }) {
         </div>
       ) : (
         // SHOW GAMES
-        <div className='make-picks-content'>
+        <div className="make-picks-content">
           <div className="instructions-section">
             <PickInstructions data={data} />
           </div>

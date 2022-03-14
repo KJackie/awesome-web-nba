@@ -14,8 +14,6 @@ function Pool() {
     setPoolData(data.data);
   }
 
-  // let labelArray = [...data]
-
   // delete picks once every day
   useEffect(() => {
     setInterval(function () {
@@ -43,6 +41,8 @@ function Pool() {
         setData(data[1].eventList);
       });
   }, []);
+
+  console.log(data)
 
   useEffect(() => {
     getAllPicks();

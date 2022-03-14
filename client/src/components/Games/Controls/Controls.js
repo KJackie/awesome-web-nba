@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./Controls.scss";
-import moment from "moment";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 function Controls({
   gameAPI,
@@ -18,11 +17,6 @@ function Controls({
         <p className="control-date"> {gameDate} </p>
         <AiOutlinePlus className="changer" onClick={increase} />
       </div>
-      {/* <div className="filter-games">
-        <p onClick={() => setFilterGames(!filterGames)} className="live-label">
-          Show Live Matches
-        </p>
-      </div> */}
     </div>
   );
 }

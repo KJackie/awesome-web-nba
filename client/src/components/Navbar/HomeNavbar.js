@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import axios from "axios";
 import domain from "../../util/domain";
-import { FaBars, FaUserAlt, FaCaretDown } from "react-icons/fa";
+import { FaCaretDown } from "react-icons/fa";
 import { useHistory } from "react-router-dom";
-import UserBox from './UserBox'
+import UserBox from "./UserBox";
 function Navbar() {
   const { user } = useContext(UserContext);
 
@@ -73,27 +73,25 @@ function Navbar() {
         </div>
       </div>
       <div className="user-info">
-        {user ? (
-           <p
-           onClick={() => setUserNav(!userNav)}
-           className="desktop-user"
-         >
-           {username}
+        {user && (
+          <p onClick={() => setUserNav(!userNav)} className="desktop-user">
+            {username}
+            <FaCaretDown className="down-arrow" />
+          </p>
+        )}
+        {!user && (
+           <p onClick={() => setUserNav(!userNav)} className="desktop-user">
            <FaCaretDown className="down-arrow" />
          </p>
-        ) : (
-          <>
-            <Link to="/register" className="sign-btn">
-              Register
-            </Link>
-            <Link to="/login" className="sign-btn">
-              Login
-            </Link>
-          </>
         )}
       </div>
       <div className={userNav ? "user-sub-nav" : "hide"}>
-        <UserBox username={username} favTeam={favTeam} user={user} logOut={logOut} />
+        <UserBox
+          username={username}
+          favTeam={favTeam}
+          user={user}
+          logOut={logOut}
+        />
       </div>
     </nav>
   );
