@@ -5,7 +5,7 @@ import axios from "axios";
 import domain from "../../util/domain";
 import ShowPicks from "./ShowPicks";
 import moment from "moment";
-
+import './PicksPage.scss'
 function PicksPage({ data, sortedGames }) {
   const { user } = useContext(UserContext);
 
@@ -91,6 +91,11 @@ function PicksPage({ data, sortedGames }) {
             <span>{gameDate}</span>
           </p>
         )}
+         {!user && (
+            <div className="no-user-msg">
+              <p> You must be signed in to make picks</p>
+            </div>
+          )}
         {picks.length > 0
         ? renderPicks()
         : user && (

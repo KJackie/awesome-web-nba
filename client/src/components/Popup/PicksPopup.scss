@@ -6,17 +6,14 @@
   background-color: rgb(247, 247, 247);
   z-index: 9999;
   padding: 2rem;
-  font-family: "Roboto", sans-serif;
-
-  display: flex;
-  flex-direction: column;
+  font-family: var(--secondaryFont);
+  @include flexCol();
   justify-content: center;
   margin-top: 2rem;
 
   .popup-content {
     height: 80%;
-    display: flex;
-    flex-direction: column;
+    @include flexCol();
     justify-content: space-between;
     font-size: 1.2rem;
     .chosen-picks {
@@ -37,9 +34,7 @@
         width: 250px;
         padding: 10px 30px;
         font-size: 1rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @include flexCenter();
         text-decoration: none;
         box-shadow: var(--box-shadow);
         border-radius: 4px;

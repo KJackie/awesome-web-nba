@@ -14,14 +14,12 @@
   display: flex;
   .user-box-contents {
     width: 100%;
-    display: flex;
-    flex-direction: column;
+    @include flexCol();
     .user-box-top {
       border-bottom: 1px solid lightgray;
-      display: flex;
-      align-items: center;
+      @include alignCenter();
       justify-content: space-between;
-      font-family: "Oswald", "sans-serif";
+      font-family: var(--primaryFont);
       font-size: 1.2rem;
       width: 100%;
       img {
@@ -30,11 +28,10 @@
     }
     .user-controls {
       border-bottom: 1px solid lightgray;
-      display: flex;
       height: 50px;
-      align-items: center;
+      @include alignCenter();
       gap: 1rem;
-      color: #4359e9;
+      color: var(--secondary-color);
       width: 100%;
       p {
         cursor: pointer;

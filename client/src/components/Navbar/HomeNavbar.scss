@@ -3,9 +3,8 @@
 .home-nav {
   width: 100%;
   padding: 3rem 20rem;
-  display: flex;
-  align-items: center;
-  font-family: "Roboto", sans-serif;
+  @include alignCenter();
+  font-family: var(--secondaryFont);
   position: relative;
   .user-sub-nav {
     position: absolute;
@@ -25,9 +24,11 @@
     height: 100%;
     display: flex;
     margin-right: 1rem;
-
+    .logo {
+      max-width: 200px;
+    }
     .sign-btn {
-      background-color: #2f24d3;
+      background-color: var(--secondary-color);
       color: white;
       padding: 0.5rem 1rem;
       margin-left: 1rem;
@@ -43,8 +44,7 @@
   .desktop-links {
     width: 60%;
     height: 100%;
-    display: flex;
-    align-items: center;
+    @include alignCenter();
     ul {
       display: flex;
       gap: 1rem;
@@ -52,14 +52,16 @@
     }
   }
   .user-info {
-    display: flex;
-    align-items: center;
+    @include alignCenter();
     justify-content: flex-end;
+    .mobile-user {
+      display: none;
+    }
     .down-arrow {
       margin-left: 0.5rem;
     }
     p {
-      background-color: #2f24d3;
+      background-color: var(--secondary-color);
       padding: 0.5rem 0.75rem;
       color: white;
       text-transform: uppercase;
@@ -79,7 +81,7 @@
   }
 }
 
-// LAPTOP SIZE 
+// LAPTOP SIZE
 @include laptop {
   .home-nav {
     padding: 2rem 8rem;
@@ -144,8 +146,7 @@
         display: block;
         padding: 0;
         ul {
-          display: flex;
-          flex-direction: column;
+          @include flexCol();
           font-size: 1rem;
           height: 100%;
           background-color: #fff;
@@ -170,27 +171,31 @@
     .user-info {
       margin-left: auto;
       width: 50%;
-      display: flex;
+      @include alignCenter();
       justify-content: space-between;
       margin-right: 2rem;
       height: 100%;
-      align-items: center;
       .mobile-burger {
         display: block;
         font-size: 1.4rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @include flexCenter();
+      }
+      .mobile-user {
+        display: block;
+      }
+      .desktop-user {
+        display: none;
       }
       p {
         font-size: 0.8rem;
         margin-left: auto;
       }
+
       .register {
         display: flex;
         width: 100%;
         a {
-          background-color: #2f24d3;
+          background-color: var(--secondary-color);
           color: white;
           padding: 0.4rem 1rem;
           font-weight: lighter;
@@ -198,9 +203,7 @@
           margin-left: auto;
           border-radius: 5px;
           width: 120px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          @include flexCenter();
         }
       }
     }

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import axios from "axios";
 import domain from "../../util/domain";
-import { FaCaretDown } from "react-icons/fa";
+import { FaCaretDown, FaUserAlt } from "react-icons/fa";
 import { useHistory } from "react-router-dom";
 import UserBox from "./UserBox";
 function Navbar() {
@@ -36,8 +36,7 @@ function Navbar() {
     <nav className="home-nav">
       <div className="brand">
         <Link to="/" className="link btn">
-          <h1> Socklord </h1>
-          <h1> Pick'em Pool</h1>
+          <img src="../images/logo.svg" className="logo" alt="logo" />
         </Link>
       </div>
       <div className="desktop-links">
@@ -79,10 +78,16 @@ function Navbar() {
             <FaCaretDown className="down-arrow" />
           </p>
         )}
+
+        <p onClick={() => setUserNav(!userNav)} className="mobile-user">
+          <FaUserAlt />
+          <FaCaretDown className="down-arrow" />
+        </p>
+
         {!user && (
-           <p onClick={() => setUserNav(!userNav)} className="desktop-user">
-           <FaCaretDown className="down-arrow" />
-         </p>
+          <p onClick={() => setUserNav(!userNav)} className="desktop-user">
+            <FaCaretDown className="down-arrow" />
+          </p>
         )}
       </div>
       <div className={userNav ? "user-sub-nav" : "hide"}>

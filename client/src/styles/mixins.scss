@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--secondaryFont);
   font-weight: lighter;
   &:hover {
     box-shadow: var(--box-shadow);
@@ -17,6 +17,22 @@
 @mixin link() {
   color: var(--link-color);
   font-weight: bold;
+}
+
+@mixin flexCol() {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flexCenter() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin alignCenter() {
+  display: flex;
+  align-items: center;
 }
 
 @mixin card() {

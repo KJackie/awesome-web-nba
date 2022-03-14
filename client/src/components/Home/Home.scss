@@ -4,18 +4,16 @@
   width: 100%;
   height: 100vh;
   padding: 0rem 20rem;
-  display: flex;
-  flex-direction: column;
+  @include flexCol();
   .guest-login {
     width: 100%;
     height: 50%;
     position: relative;
-    font-family: "Roboto";
+    font-family: var(--secondaryFont);
     text-align: center;
     p {
       font-size: 1.2rem;
       margin-bottom: 1rem;
-
     }
     .demo-login-page {
       width: 100%;
@@ -46,7 +44,7 @@
     width: 100%;
     .home-text {
       position: relative;
-      font-family: "Oswald", sans-serif;
+      font-family: var(--primaryFont);
       width: 100%;
       text-align: center;
       h1 {
@@ -58,15 +56,12 @@
       p {
         font-size: 2rem;
         line-height: 3.5rem;
-        
       }
     }
     .btn-container-home {
-      display: flex;
+      @include flexCenter();
       width: 50%;
       margin: 0 auto;
-      align-items: center;
-      justify-content: center;
       position: relative;
       margin-top: 2rem;
       gap: 1rem;
@@ -74,14 +69,9 @@
         padding: 1rem 2rem;
         background-color: black;
         color: white;
-        font-family: 'Roboto';
+        font-family: var(--secondaryFont);
         font-weight: lighter;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        
-
-        
+        @include flexCenter();
       }
     }
   }
@@ -108,8 +98,7 @@
   .home-page {
     width: 100vw;
     padding: 0 8rem;
-    display: flex;
-    flex-direction: column;
+    @include flexCol();
     .guest-login {
       margin-top: 4rem;
     }
@@ -128,14 +117,11 @@
       }
       .btn-container-home {
         width: 100%;
-        display: flex;
-        flex-direction: column;
+        @include flexCol();
         gap: 1rem;
         .btn {
           width: 300px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          @include flexCenter();
           margin-top: 1rem;
         }
       }
@@ -151,15 +137,13 @@
   .home-page {
     width: 100vw;
     padding: 0;
-    display: flex;
-    flex-direction: column;
+    @include flexCol();
     height: 100%;
     .guest-login {
       width: 100%;
       margin-top: 1rem;
       margin-bottom: 2rem;
       p {
-        margin-right: 1rem;
       }
     }
     .title {
@@ -175,20 +159,17 @@
         p {
           font-size: 1.2rem;
           line-height: 1.8rem;
-          font-family: "Roboto";
+          font-family: var(--secondaryFont);
         }
       }
       .btn-container-home {
         width: 100%;
-        display: flex;
-        flex-direction: column;
+        @include flexCol();
         gap: 1rem;
         height: 50%;
         .btn {
           width: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          @include flexCenter();
           height: 50px;
         }
       }

@@ -6,7 +6,7 @@ import domain from "../../util/domain";
 import "./Navbar.scss";
 import { FaBars, FaUserAlt, FaCaretDown } from "react-icons/fa";
 import { useHistory } from "react-router-dom";
-import UserBox from './UserBox'
+import UserBox from "./UserBox";
 function Navbar() {
   const { user } = useContext(UserContext);
 
@@ -37,8 +37,7 @@ function Navbar() {
       <div className="top">
         <div className="brand">
           <Link to="/" className="link btn">
-            <h1> Socklord </h1>
-            <h1> Pick'em Pool</h1>
+            <img src="../images/logo.svg" className="logo" alt="logo" />
           </Link>
         </div>
         <div className="user-info">
@@ -51,6 +50,7 @@ function Navbar() {
                 <FaUserAlt />
                 <FaCaretDown className="down-arrow" />
               </p>
+              
               <p
                 onClick={() => setMobileNav(!mobileNav)}
                 className="desktop-user"
@@ -58,6 +58,7 @@ function Navbar() {
                 {username}
                 <FaUserAlt />
               </p>
+              
             </>
           ) : (
             <>
@@ -120,7 +121,12 @@ function Navbar() {
             <FaBars onClick={() => setUserNav(!userNav)} />
           </div>
           <div className={userNav ? "user-sub-nav" : "hide"}>
-          <UserBox username={username} favTeam={favTeam} user={user} logOut={logOut} />
+            <UserBox
+              username={username}
+              favTeam={favTeam}
+              user={user}
+              logOut={logOut}
+            />
           </div>
         </div>
       </div>

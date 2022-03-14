@@ -1,0 +1,12 @@
+.demo-login-page {
+ input,
+ label {
+  display: none;
+ }
+ width: 50%;
+ .demo-submit-btn {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 1rem 2rem;
+ }
+}
