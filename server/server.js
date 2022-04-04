@@ -54,7 +54,7 @@ app.get("/gamebar", async (req, res) => {
 
 app.get("/expert-picks", async (req, res) => {
   const response = await axios.get(
-    "https://api.nflpickwatch.com/v1/picks/nba/2021/167/su/combined/true/25/0"
+    "https://api.nflpickwatch.com/v1/picks/nba/2021/167/su/combined/true/15/0"
   );
   const data = response.data;
   res.status(200).send(data);
