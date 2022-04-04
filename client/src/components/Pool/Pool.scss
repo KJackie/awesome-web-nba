@@ -60,11 +60,19 @@
       @include alignCenter();
       width: 100%;
       justify-content: space-between;
+      height: 50px;
       .user {
         width: 200px;
+        position: relative;
+        display: flex;
+        justify-content: center;
         .user-email {
           width: 100%;
           display: flex;
+        }
+        .verified {
+          max-width: 20px;
+          margin-left: 0.2rem;
         }
         .record {
           font-size: 1.5rem;
@@ -74,6 +82,7 @@
       .user-pick {
         display: flex;
         width: 100%;
+        align-items: center;
         .winner {
           background-color: #baebc5;
           width: 55px;
@@ -98,8 +107,9 @@
         .picked-logo {
           width: 100%;
           @include alignCenter();
-          @include flexCol();
-          border: 1px solid lightgray;
+          
+          position: relative;
+          justify-content: center;
           img {
             width: 45px;
           }

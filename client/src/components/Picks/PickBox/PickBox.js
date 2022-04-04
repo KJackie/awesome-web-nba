@@ -12,18 +12,18 @@ function PickBox({ item, index }) {
               type="radio"
               name={item.id}
               id="radio"
-              value={item.homeEventResult.competitor.shortName}
+              value={item.homeEventResult.competitor.shortNameFR}
             />
             <div className="logo">
               <img
-                src={`../icons/${item.homeEventResult.competitor.shortName}.svg`}
+                src={`../icons/${item.homeEventResult.competitor.shortNameFR}.svg`}
                 className="team-logo"
                 alt=""
               />
             </div>
 
             <div className="team-id">
-              <p> {item.homeEventResult.competitor.shortName}</p>
+              <p> {item.homeEventResult.competitor.shortNameFR}</p>
               <p className="home-away"> Home </p>
             </div>
           </label>
@@ -37,7 +37,7 @@ function PickBox({ item, index }) {
           <label className="box">
             <div className="logo">
               <img
-                src={`../icons/${item.awayEventResult.competitor.shortName}.svg`}
+                src={`../icons/${item.awayEventResult.competitor.shortNameFR}.svg`}
                 className="team-logo"
                 alt=""
               />
@@ -47,15 +47,15 @@ function PickBox({ item, index }) {
               type="radio"
               name={item.id}
               id="radio"
-              value={item.awayEventResult.competitor.shortName}
+              value={item.awayEventResult.competitor.shortNameFR}
               className="radio"
             />
             <div className="team-id">
-              <p> {item.awayEventResult.competitor.shortName}</p>
+              <p> {item.awayEventResult.competitor.shortNameFR}</p>
               <p className="home-away"> Away </p>
             </div>
             <div className="abbr">
-              <p> {item.awayEventResult.competitor.shortName}</p>
+              <p> {item.awayEventResult.competitor.shortNameFR}</p>
               <p> Home </p>
             </div>
           </label>

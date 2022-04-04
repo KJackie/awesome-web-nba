@@ -20,13 +20,11 @@ function Navbar() {
   }
   getUser();
 
-  const history = useHistory();
 
   // LOGOUT USER
   async function logOut() {
     await axios.get(`${domain}/auth/logOut`);
     await getUser();
-    history.push("/");
   }
 
   const [mobileNav, setMobileNav] = useState(false);

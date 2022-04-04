@@ -5,6 +5,7 @@ import domain from "../../util/domain";
 import UserContext from "../../context/UserContext";
 import UserPicks from "./UserPicks/UserPicks";
 import PoolLabels from "./PoolLabels/PoolLabels";
+import ExpertPicks from './ExpertPicks/ExpertPicks';
 function Pool() {
   let [poolData, setPoolData] = useState([]);
   const [data, setData] = useState([]);
@@ -42,6 +43,16 @@ function Pool() {
       });
   }, []);
 
+  const [expertPicks, setExpertPicks] = useState([]);
+
+  useEffect(() => {
+    fetch(`${domain}/expert-picks`)
+      .then((res) => res.json())
+      .then((data) => {
+        setExpertPicks(data.picks);
+      });
+  }, []);
+
   useEffect(() => {
     getAllPicks();
   }, []);
@@ -61,6 +72,12 @@ function Pool() {
       <div className="all-picks">
         {poolData.map((item, index) => {
           return <UserPicks item={item} sortedGames={sortedGames} />;
+        })}
+        {expertPicks.map((item, i) => {
+          return (
+            <ExpertPicks item={item} sortedGames={sortedGames} />
+           
+          )
         })}
       </div>
     </div>

@@ -28,7 +28,7 @@ function PicksPopup({ pick, setPopUp, addPicks, setPick }) {
             Edit
           </button>
           <Link className="btn" onClick={addPicks} to="/pool">
-            Go to Pool
+            Pool
           </Link>
         </div>
       </div>

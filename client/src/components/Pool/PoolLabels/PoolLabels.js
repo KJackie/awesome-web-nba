@@ -1,6 +1,8 @@
 import React from "react";
 
 function PoolLabels({ sortedGames }) {
+
+
   return (
     <div className="label-container">
       <div className="labels">
@@ -9,7 +11,7 @@ function PoolLabels({ sortedGames }) {
         </div>
 
         <div className="matchups">
-          {sortedGames.map((item) => {
+          {sortedGames.map((item, index) => {
             return (
               <div className="label-box">
                 <p
@@ -19,7 +21,7 @@ function PoolLabels({ sortedGames }) {
                       : "losing"
                   }
                 >
-                  {item.homeEventResult.competitor.shortName}
+                  {item.homeEventResult.competitor.shortNameFR}
                 </p>
                 {item.homeEventResult.score ? (
                   <p className="score"> {item.homeEventResult.score}</p>
@@ -42,7 +44,7 @@ function PoolLabels({ sortedGames }) {
                       : "losing"
                   }
                 >
-                  {item.awayEventResult.competitor.shortName}
+                  {item.awayEventResult.competitor.shortNameFR}
                 </p>
               </div>
             );
