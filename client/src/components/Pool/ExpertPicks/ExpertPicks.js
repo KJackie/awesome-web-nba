@@ -3,7 +3,6 @@ import React from "react";
 function ExpertPicks({ item, sortedGames }) {
   let recordCount = 0;
 
-  console.log(item);
   let picksArr = [];
 
   picksArr.push(item.picks);
@@ -12,25 +11,25 @@ function ExpertPicks({ item, sortedGames }) {
 
   picksArr.map((item, i) => {
     return expertPick.push(
-      item[1166]?.team_id,
-      item[1167]?.team_id,
-      item[1168]?.team_id,
-      item[1169]?.team_id,
-      item[1170]?.team_id,
-      item[1171]?.team_id,
-      item[1172]?.team_id,
-      item[1173]?.team_id,
-      item[1174]?.team_id,
-      item[1175]?.team_id,
-      item[1176]?.team_id,
-      item[1177]?.team_id
+      item[1178]?.team_id,
+      item[1179]?.team_id,
+      item[1180]?.team_id,
+      item[1181]?.team_id,
+      item[1182]?.team_id,
+      item[1183]?.team_id,
+      item[1184]?.team_id,
+      item[1185]?.team_id,
+      item[1186]?.team_id,
+      item[1187]?.team_id,
+      item[1188]?.team_id,
+      item[1189]?.team_id
     );
   });
 
   return (
     <div className="user-pick-box">
       <div className="user">
-        <p className="user-email">{item.username} {item.affiliation && <img className="verified" src="../images/verified.png" alt="" />}</p>
+        <p className="user-email">{item.username}</p>
         
       </div>
 
@@ -78,7 +77,7 @@ function ExpertPicks({ item, sortedGames }) {
                   : "picked-logo"
               }
             >
-              {picks === "NO" ? (
+              {picks === undefined ? (
                 <img src={`../icons/no-pick.svg`} className="logo" alt="" />
               ) : (
                 <img src={`../icons/${picks}.svg`} className="logo" alt="" />

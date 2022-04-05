@@ -11,16 +11,23 @@ function UserBox({ username, favTeam, user, logOut }) {
       </div>
       {user ? (
         <div className="user-controls">
+          <Link to="/picks" className="link btn">
+            Your Picks
+          </Link>
+          <Link to="/pool" className="link btn">
+            Vew Pool
+          </Link>
           <Link to="/games" className="link btn">
-              Games
-            </Link>
+            Games
+          </Link>
+
           <button className="logout-btn btn" onClick={logOut}>
             Log out
           </button>
         </div>
       ) : (
         <div className="user-controls">
-          <p> You are currently not signed in. </p>
+          <p> You are not signed in. </p>
         </div>
       )}
     </div>

@@ -33,6 +33,9 @@
       gap: 1rem;
       color: var(--secondary-color);
       width: 100%;
+      .logout-btn {
+        margin-left: auto;
+      }
       p {
         cursor: pointer;
       }

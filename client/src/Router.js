@@ -29,17 +29,35 @@ function Router() {
     return a.eventId - b.eventId;
   });
 
+  const [gameAPI, setGameAPI] = useState([]);
+
+  let today = new Date();
+  var res = today.toISOString().slice(0, 10).replace(/-/g, "");
+  let theDate = Number(res);
+
+  let [date, setDate] = useState(theDate);
+
+  useEffect(() => {
+    fetch(
+      `https://site.web.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?region=us&lang=en&contentorigin=espn&limit=100&calendartype=blacklist&includeModules=videos%2Ccards&dates=${date}&tz=America%2FNew_York&buyWindow=1m&showAirings=buy%2Clive&showZipLookup=true`
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setGameAPI(data);
+      });
+  }, [theDate, date]);
 
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
           <HomeNavbar />
-          <Home />
+          <Home gameAPI={gameAPI} />
         </Route>
         <Route exact path="/picks">
           <Navbar />
-
           <PicksPage data={data} sortedGames={sortedGames} />
         </Route>
         <Route exact path="/pool">
@@ -48,7 +66,12 @@ function Router() {
         </Route>
         <Route exact path="/games">
           <Navbar />
-          <Games games={games} />
+          <Games
+            games={games}
+            gameAPI={gameAPI}
+            date={date}
+            setDate={setDate}
+          />
         </Route>
         <Route path="/login">
           <Login />

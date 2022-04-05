@@ -45,6 +45,7 @@ function Pool() {
 
   const [expertPicks, setExpertPicks] = useState([]);
 
+
   useEffect(() => {
     fetch(`${domain}/expert-picks`)
       .then((res) => res.json())
@@ -52,6 +53,8 @@ function Pool() {
         setExpertPicks(data.picks);
       });
   }, []);
+
+
 
   useEffect(() => {
     getAllPicks();
@@ -64,11 +67,6 @@ function Pool() {
   return (
     <div className="pool">
       <PoolLabels sortedGames={sortedGames} />
-      {!user && (
-        <div className="no-user-msg">
-          <p>You must be signed in to view the pool</p>
-        </div>
-      )}
       <div className="all-picks">
         {poolData.map((item, index) => {
           return <UserPicks item={item} sortedGames={sortedGames} />;

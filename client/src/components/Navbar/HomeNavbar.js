@@ -50,6 +50,16 @@ function Navbar() {
           <Link to="/games" className="link btn">
             Games
           </Link>
+          {user && (
+            <>
+              <Link to="/picks" className="link btn">
+                Picks
+              </Link>
+              <Link to="/pool" className="link btn">
+                Pool
+              </Link>
+            </>
+          )}
         </ul>
       </div>
 
@@ -72,20 +82,25 @@ function Navbar() {
         </div>
       </div>
       <div className="user-info">
-        {user && (
+        {user ? (
           <p onClick={() => setUserNav(!userNav)} className="desktop-user">
             {username}
             <FaCaretDown className="down-arrow" />
           </p>
+        ) : (
+          <>
+            <Link to="/register" className="register">
+              Register
+            </Link>
+            <Link to="/login" className="link">
+              Login
+            </Link>
+          </>
         )}
 
-        <p onClick={() => setUserNav(!userNav)} className="mobile-user">
-          <FaUserAlt />
-          <FaCaretDown className="down-arrow" />
-        </p>
-
-        {!user && (
-          <p onClick={() => setUserNav(!userNav)} className="desktop-user">
+        {user && (
+          <p onClick={() => setUserNav(!userNav)} className="mobile-user">
+            <FaUserAlt />
             <FaCaretDown className="down-arrow" />
           </p>
         )}

@@ -6,6 +6,7 @@ import ErrorMessage from "../misc/ErrorMessage";
 import "./AuthForm.scss";
 import "./AuthPages.scss"
 import domain from '../../util/domain'
+import {BsArrowRight} from 'react-icons/bs'
 import './DemoLogin.scss'
 function Login() {
   const [demoFormEmail, setDemoFormEmail] = useState("");
@@ -67,7 +68,7 @@ function Login() {
           </div>
 
           <button className="demo-submit-btn" type="submit">
-            Continue as Guest
+            Continue as Guest <BsArrowRight className="right-arrow" />
           </button>
         </form>
        

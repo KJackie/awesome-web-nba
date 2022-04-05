@@ -27,6 +27,8 @@
       .record-label {
         width: 200px;
         @include flexCenter();
+        display: flex;
+        justify-content: flex-end;
       }
       .matchups {
         display: flex;
@@ -41,6 +43,7 @@
           .score {
             font-size: 0.8rem;
             font-weight: bold;
+            
           }
           .winner {
             color: var(--secondary-color);
@@ -77,12 +80,16 @@
         .record {
           font-size: 1.5rem;
           @include flexCenter();
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
         }
       }
       .user-pick {
         display: flex;
         width: 100%;
         align-items: center;
+
         .winner {
           background-color: #baebc5;
           width: 55px;

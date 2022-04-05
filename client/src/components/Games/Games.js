@@ -4,26 +4,9 @@ import Card from "./Card/Card";
 import Controls from "./Controls/Controls";
 import moment from "moment";
 
-function Games() {
+function Games({gameAPI, setDate, date}) {
   const [filterGames, setFilterGames] = useState(false);
-  const [gameAPI, setGameAPI] = useState([]);
-  let today = new Date();
-  var res = today.toISOString().slice(0, 10).replace(/-/g, "");
-  let theDate = Number(res);
-
-  let [date, setDate] = useState(theDate);
-
-  useEffect(() => {
-    fetch(
-      `https://site.web.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?region=us&lang=en&contentorigin=espn&limit=100&calendartype=blacklist&includeModules=videos%2Ccards&dates=${date}&tz=America%2FNew_York&buyWindow=1m&showAirings=buy%2Clive&showZipLookup=true`
-    )
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setGameAPI(data);
-      });
-  }, [theDate, date]);
+  
 
   let gameDate = moment(date, ["MM-DD-YYYY", "YYYY-MM-DD"]).format("MMMM DD");
 
