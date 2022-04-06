@@ -7,8 +7,6 @@ import domain from "../../util/domain";
 function Home({ gameAPI }) {
   const { user } = useContext(UserContext);
 
-  console.log(gameAPI.videos);
-
   const [consensus, setConsensus] = useState([]);
 
   useEffect(() => {
@@ -18,8 +16,6 @@ function Home({ gameAPI }) {
         setConsensus(data);
       });
   }, []);
-
-  console.log(consensus);
 
   return (
     <>
@@ -52,12 +48,12 @@ function Home({ gameAPI }) {
               </div>
             </div>
           </div>
-        ):(
+        ) : (
           <div className="left">
-          <div className="title">
-            <div className="home-text">
-              <h1> Todays Top Picks </h1>
-              {/* <p>
+            <div className="title">
+              <div className="home-text">
+                <h1> Todays Top Picks </h1>
+                {/* <p>
             {" "}
             Click{" "}
             <span>
@@ -67,13 +63,10 @@ function Home({ gameAPI }) {
             </span>{" "}
             to get started.{" "}
           </p> */}
-              <p>
-                The experts most confident picks.
-              </p>
-             
+                <p>The experts most confident picks.</p>
+              </div>
             </div>
           </div>
-        </div>
         )}
 
         <div className="right">
@@ -109,7 +102,7 @@ function Home({ gameAPI }) {
             })}
           </div>
           <div className="demo-bar second">
-          {consensus.map((item, index) => {
+            {consensus.map((item, index) => {
               if (item.rt_pct_ats_experts > 80) {
                 return (
                   <>

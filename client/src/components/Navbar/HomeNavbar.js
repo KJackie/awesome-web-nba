@@ -50,6 +50,9 @@ function Navbar() {
           <Link to="/games" className="link btn">
             Games
           </Link>
+          <Link to="/betcalculator" className="link btn">
+            Bet Calculator
+          </Link>
           {user && (
             <>
               <Link to="/picks" className="link btn">

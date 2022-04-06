@@ -1,0 +1,129 @@
+.bet-calc-page {
+  padding: 0 8rem;
+  height: auto;
+  font-family: "Roboto";
+  display: flex;
+  width: 100%;
+  position: relative;
+  .left {
+    width: 50%;
+    .game-boxes {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      .box {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        height: 140px;
+        border-bottom: 1px solid lightgray;
+        padding: 1rem 0;
+        .game-info {
+          display: flex;
+          gap: 0.5rem;
+          .live-icon {
+            background-color: var(--black);
+            width: 40px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1px;
+            border-radius: 2px;
+          }
+        }
+
+        .home,
+        .road {
+          height: 100%;
+          display: flex;
+
+          .team-name {
+            display: flex;
+            align-items: center;
+            width: 35%;
+            .score {
+              margin-left: auto;
+              font-size: 1.2rem;
+              font-weight: bold;
+            }
+          }
+
+          .team-odds {
+            display: flex;
+            width: 65%;
+            justify-content: space-evenly;
+            margin-left: 1rem;
+            .odd-box {
+              width: 120px;
+              padding: 0 1rem;
+              display: flex;
+              justify-content: center;
+              gap: 1rem;
+              align-items: center;
+              outline: 2px solid black;
+              p {
+                font-size: 0.8rem;
+                color: rgb(44, 160, 44);
+                font-weight: bold;
+              }
+            }
+          }
+
+          img {
+            max-width: 35px;
+            margin-right: 0.5rem;
+          }
+          h1 {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+
+  .right {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    .calculator {
+      outline: 2px solid slateblue;
+      width: 80%;
+      height: 80%;
+      margin-left: auto;
+      .bet-box {
+        border: 1px solid lightgray;
+        padding: 1rem;
+        .odds {
+          p {
+            font-size: 2rem;
+          }
+        }
+        .payout {
+          .total-winnings {
+           font-size: 3rem;
+           
+          }
+          .view-payout {
+           color: red;
+          }
+        }
+        h1 {
+          font-size: 1rem;
+        }
+        p {
+          font-weight: lighter;
+        }
+        input {
+          height: 50px;
+          width: 25%;
+          font-size: 2rem;
+          margin: 1rem 0;
+        }
+      }
+    }
+  }
+}

@@ -13,6 +13,7 @@ import ShowPicks from "./components/Picks/ShowPicks";
 import UserContext from "./context/UserContext";
 import axios from "axios";
 import Games from "./components/Games/Games";
+import BetCalc from './components/BetCalc/BetCalc'
 function Router() {
   const [data, setData] = useState([]);
   const [games, setGames] = useState([]);
@@ -63,6 +64,10 @@ function Router() {
         <Route exact path="/pool">
           <Navbar />
           <Pool />
+        </Route>
+        <Route exact path="/betcalculator">
+          <Navbar />
+          <BetCalc />
         </Route>
         <Route exact path="/games">
           <Navbar />

@@ -54,6 +54,18 @@ function Pool() {
       });
   }, []);
 
+  
+  const [labels, setLabels] = useState([])
+
+  useEffect(() => {
+    fetch(`${domain}/consensus`)
+      .then((res) => res.json())
+      .then((data) => {
+        setLabels(data);
+      });
+  }, []);
+
+
 
 
   useEffect(() => {
@@ -66,14 +78,14 @@ function Pool() {
 
   return (
     <div className="pool">
-      <PoolLabels sortedGames={sortedGames} />
+      <PoolLabels labels={labels} />
       <div className="all-picks">
         {poolData.map((item, index) => {
           return <UserPicks item={item} sortedGames={sortedGames} />;
         })}
         {expertPicks.map((item, i) => {
           return (
-            <ExpertPicks item={item} sortedGames={sortedGames} />
+            <ExpertPicks item={item} labels={labels} />
            
           )
         })}

@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import domain from '../../../util/domain'
+function PoolLabels({labels}) {
+  
 
-function PoolLabels({ sortedGames }) {
-
-
+  
 
   return (
     <div className="label-container">
@@ -12,40 +13,40 @@ function PoolLabels({ sortedGames }) {
         </div>
 
         <div className="matchups">
-          {sortedGames.map((item, index) => {
+          {labels.map((item, index) => {
             return (
               <div className="label-box">
                 <p
                   className={
-                    item.homeEventResult.score > item.awayEventResult.score
+                    item.live_home_team_score > item.live_road_team_score
                       ? "winner"
                       : "losing"
                   }
                 >
-                  {item.homeEventResult.competitor.shortNameFR}
+                  {item.home_team_id}
                 </p>
-                {item.homeEventResult.score ? (
-                  <p className="score"> {item.homeEventResult.score}</p>
+                {item.live_home_team_score ? (
+                  <p className="score"> {item.live_home_team_score}</p>
                 ) : (
                   <p className="score"> 0 </p>
                 )}
 
                 <p> vs</p>
 
-                {item.awayEventResult.score ? (
-                  <p className="score"> {item.awayEventResult.score}</p>
+                {item.live_road_team_score? (
+                  <p className="score"> {item.live_road_team_score}</p>
                 ) : (
                   <p className="score"> 0 </p>
                 )}
 
                 <p
                   className={
-                    item.homeEventResult.score < item.awayEventResult.score
+                    item.live_home_team_score < item.live_road_team_score
                       ? "winner"
                       : "losing"
                   }
                 >
-                  {item.awayEventResult.competitor.shortNameFR}
+                  {item.road_team_id}
                 </p>
               </div>
             );

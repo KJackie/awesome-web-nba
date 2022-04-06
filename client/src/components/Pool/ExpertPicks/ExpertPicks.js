@@ -1,6 +1,6 @@
 import React from "react";
 
-function ExpertPicks({ item, sortedGames }) {
+function ExpertPicks({ item, labels }) {
   let recordCount = 0;
 
   let picksArr = [];
@@ -26,24 +26,25 @@ function ExpertPicks({ item, sortedGames }) {
     );
   });
 
+  console.log(labels)
+
   return (
     <div className="user-pick-box">
       <div className="user">
         <p className="user-email">{item.username}</p>
-        
       </div>
 
       <div className="user-pick">
         {expertPick.map((picks, index) => {
           if (
-            (sortedGames[index]?.homeEventResult.competitor.shortName ===
+            (labels[index]?.home_team_id ===
               picks &&
-              sortedGames[index]?.homeEventResult.score >
-                sortedGames[index]?.awayEventResult.score) ||
-            (sortedGames[index]?.awayEventResult.competitor.shortName ===
+              labels[index]?.live_home_team_score >
+                labels[index]?.live_road_team_score) ||
+            (labels[index]?.road_team_id ===
               picks &&
-              sortedGames[index]?.awayEventResult.score >
-                sortedGames[index]?.homeEventResult.score)
+              labels[index]?.live_road_team_score >
+                labels[index]?.live_home_team_score)
           ) {
             recordCount++;
           }
@@ -51,28 +52,28 @@ function ExpertPicks({ item, sortedGames }) {
             <div
               className={
                 // if HOME team = your pick and HOME team is winning... apply 'winning'
-                sortedGames[index]?.homeEventResult.competitor.shortNameFR ===
+                labels[index]?.home_team_id ===
                   picks &&
-                sortedGames[index]?.homeEventResult.score >
-                  sortedGames[index]?.awayEventResult.score
+                labels[index]?.live_home_team_score >
+                  labels[index]?.live_road_team_score
                   ? "winner"
                   : // if AWAY team = your pick and AWAY team is winning... apply 'winning'
-                  sortedGames[index]?.awayEventResult.competitor.shortNameFR ===
+                  labels[index]?.road_team_id ===
                       picks &&
-                    sortedGames[index]?.awayEventResult.score >
-                      sortedGames[index]?.homeEventResult.score
+                    labels[index]?.live_road_team_score >
+                      labels[index]?.live_home_team_score
                   ? "winner"
                   : // if AWAY team = your pick and AWAY team is losing... apply 'losing'
-                  sortedGames[index]?.awayEventResult.competitor.shortNameFR ===
+                  labels[index]?.road_team_id ===
                       picks &&
-                    sortedGames[index]?.awayEventResult.score <
-                      sortedGames[index]?.homeEventResult.score
+                    labels[index]?.live_road_team_score <
+                      labels[index]?.live_home_team_score
                   ? "loser"
                   : // if HOME team = your pick and HOME team is losing... apply 'losing'
-                  sortedGames[index]?.homeEventResult.competitor.shortNameFR ===
+                  labels[index]?.home_team_id ===
                       picks &&
-                    sortedGames[index]?.homeEventResult.score <
-                      sortedGames[index]?.awayEventResult.score
+                    labels[index]?.live_home_team_score <
+                      labels[index]?.live_road_team_score
                   ? "loser"
                   : "picked-logo"
               }

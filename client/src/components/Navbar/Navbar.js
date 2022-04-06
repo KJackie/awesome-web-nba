@@ -85,6 +85,7 @@ function Navbar() {
             <Link to="/games" className="link btn">
               Games
             </Link>
+            
             {user ? (
               <Link className="logout-btn btn" onClick={logOut}>
                 Log out
@@ -113,6 +114,9 @@ function Navbar() {
             </Link>
             <Link to="/games" className="link btn">
               Games
+            </Link>
+            <Link to="/betcalculator" className="link btn">
+              Bet Calculator
             </Link>
           </ul>
           <div className="burger">
