@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./BetCalc.scss";
-import domain from "../../util/domain";
 function BetCalc() {
   const [games, setGames] = useState([]);
 
@@ -52,9 +51,15 @@ function BetCalc() {
           {games.map((item, index) => {
             return (
               <div className="box">
-                {item.gamecastAvailable && (
+                {item.status === 'in' ? (
                   <div className="game-info">
                     <div className="live-icon">Live</div>
+                    <div className="game-clock">
+                      <p>{item.fullStatus.type.detail}</p>
+                    </div>
+                  </div>
+                ):(
+                  <div className="game-info">
                     <div className="game-clock">
                       <p>{item.fullStatus.type.detail}</p>
                     </div>
@@ -143,6 +148,7 @@ function BetCalc() {
           <div className="wager-input bet-box">
             <h1> Bet Amount </h1>
             <p> Choose the amount of money you want to bet</p>
+            
             <input
               type="number"
               name="wager"
@@ -150,23 +156,32 @@ function BetCalc() {
             />
         
           </div>
-          <div className="view-odds bet-box ">
+          <div className="view-odds bet-box show-mobile ">
             <h1> Odds </h1>
-            <p> Choose the odds by clicking on the box of your choice</p>
+            <p> Input the odds</p>
+            <input
+              type="number"
+              name="wager"
+              onChange={(e) => setOdds(e.target.value)}
+            />
+          </div>
+          <div className="view-odds bet-box hide-mobile ">
+            <h1> Odds </h1>
+            <p> Choose the odds by clicking on the boxes to the left</p>
             <div className="odds">
               <p>{odds}</p>
             </div>
           </div>
-          <button onClick={() => calculateBet(wager)}>Calculate</button>
+          <button className="calc-btn" onClick={() => calculateBet(wager)}>Calculate</button>
 
           <div className="payout bet-box">
             <h1>Payout</h1>
             <div className="total-winnings">
-              <p>{totalWinnings}</p>
+              <p>${totalWinnings}</p>
             </div>
             <div className="view-payout">
               <h1>Profit</h1>
-              <p>{payout} </p>
+              <p>${payout} </p>
             </div>
           </div>
         </div>

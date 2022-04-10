@@ -2,7 +2,7 @@ import "./styles/App.scss";
 import Router from "./Router";
 import { UserContextProvider } from "../src/context/UserContext";
 import axios from "axios";
-import React, { useState } from "react";
+import React from "react";
 
 axios.defaults.withCredentials = true;
 

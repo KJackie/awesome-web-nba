@@ -13,20 +13,31 @@ function Navbar() {
   // GET USERNAME AND FAV TEAM
   const [username, setUsername] = useState("");
   const [favTeam, setFavTeam] = useState("");
+
+  
+ 
+
   async function getUser() {
-    const userRes = await axios.get(`${domain}/loggedIn/${user}`);
-    setUsername(userRes.data.username);
-    setFavTeam(userRes.data.favoriteTeam);
+    if (user) {
+      const userRes = await axios.get(`${domain}/loggedIn/${user}`);
+      setUsername(userRes.data.username);
+      setFavTeam(userRes.data.favoriteTeam);
+    }
+    
   }
   getUser();
 
   const history = useHistory();
 
   // LOGOUT USER
+ 
   async function logOut() {
-    await axios.get(`${domain}/auth/logOut`);
-    await getUser();
-    history.push("/");
+    if (user) {
+      await axios.get(`${domain}/auth/logOut`);
+      await getUser();
+      history.push("/");
+    }
+    
   }
 
   const [mobileNav, setMobileNav] = useState(false);
@@ -53,16 +64,7 @@ function Navbar() {
           <Link to="/betcalculator" className="link btn">
             Bet Calculator
           </Link>
-          {user && (
-            <>
-              <Link to="/picks" className="link btn">
-                Picks
-              </Link>
-              <Link to="/pool" className="link btn">
-                Pool
-              </Link>
-            </>
-          )}
+         
         </ul>
       </div>
 

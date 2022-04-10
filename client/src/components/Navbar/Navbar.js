@@ -5,7 +5,6 @@ import axios from "axios";
 import domain from "../../util/domain";
 import "./Navbar.scss";
 import { FaBars, FaUserAlt, FaCaretDown } from "react-icons/fa";
-import { useHistory } from "react-router-dom";
 import UserBox from "./UserBox";
 function Navbar() {
   const { user } = useContext(UserContext);
@@ -73,7 +72,7 @@ function Navbar() {
       <div className={mobileNav ? "dropdown" : "hide"}>
         <div className="mobile-links">
           <ul>
-            <Link to="/" className="link btn">
+            <Link exact to="/" className="link btn">
               Home
             </Link>
             <Link to="/picks" className="link btn">

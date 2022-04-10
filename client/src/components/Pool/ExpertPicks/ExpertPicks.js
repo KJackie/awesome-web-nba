@@ -1,32 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 function ExpertPicks({ item, labels }) {
   let recordCount = 0;
 
-  let picksArr = [];
+  const [test, setTest] = useState([]);
 
-  picksArr.push(item.picks);
+  useEffect(() => {
+    let picksArr = [];
+    picksArr.push(item.picks);
 
-  let expertPick = [];
-
-  picksArr.map((item, i) => {
-    return expertPick.push(
-      item[1178]?.team_id,
-      item[1179]?.team_id,
-      item[1180]?.team_id,
-      item[1181]?.team_id,
-      item[1182]?.team_id,
-      item[1183]?.team_id,
-      item[1184]?.team_id,
-      item[1185]?.team_id,
-      item[1186]?.team_id,
-      item[1187]?.team_id,
-      item[1188]?.team_id,
-      item[1189]?.team_id
-    );
-  });
-
-  console.log(labels)
+    let sortedPicks = [];
+    // filter picks by sequence number
+    const pickSequence = (picksArr) => {
+      return picksArr.map((item) => {
+        let picksSorted = Object.keys(item).sort(function (a, b) {
+          return item[a].seq - item[b].seq;
+        });
+        picksSorted.map((item) => {
+          return sortedPicks.push(picksArr[0][item]);
+        });
+        setTest(sortedPicks);
+      });
+    };
+    pickSequence(picksArr);
+  }, [item.picks]);
 
   return (
     <div className="user-pick-box">
@@ -35,14 +32,13 @@ function ExpertPicks({ item, labels }) {
       </div>
 
       <div className="user-pick">
-        {expertPick.map((picks, index) => {
+        {test.map((picks, index) => {
+          console.log(picks);
           if (
-            (labels[index]?.home_team_id ===
-              picks &&
+            (labels[index]?.home_team_id === picks &&
               labels[index]?.live_home_team_score >
                 labels[index]?.live_road_team_score) ||
-            (labels[index]?.road_team_id ===
-              picks &&
+            (labels[index]?.road_team_id === picks &&
               labels[index]?.live_road_team_score >
                 labels[index]?.live_home_team_score)
           ) {
@@ -52,26 +48,22 @@ function ExpertPicks({ item, labels }) {
             <div
               className={
                 // if HOME team = your pick and HOME team is winning... apply 'winning'
-                labels[index]?.home_team_id ===
-                  picks &&
+                labels[index]?.home_team_id === picks &&
                 labels[index]?.live_home_team_score >
                   labels[index]?.live_road_team_score
                   ? "winner"
                   : // if AWAY team = your pick and AWAY team is winning... apply 'winning'
-                  labels[index]?.road_team_id ===
-                      picks &&
+                  labels[index]?.road_team_id === picks &&
                     labels[index]?.live_road_team_score >
                       labels[index]?.live_home_team_score
                   ? "winner"
                   : // if AWAY team = your pick and AWAY team is losing... apply 'losing'
-                  labels[index]?.road_team_id ===
-                      picks &&
+                  labels[index]?.road_team_id === picks &&
                     labels[index]?.live_road_team_score <
                       labels[index]?.live_home_team_score
                   ? "loser"
                   : // if HOME team = your pick and HOME team is losing... apply 'losing'
-                  labels[index]?.home_team_id ===
-                      picks &&
+                  labels[index]?.home_team_id === picks &&
                     labels[index]?.live_home_team_score <
                       labels[index]?.live_road_team_score
                   ? "loser"
@@ -81,7 +73,11 @@ function ExpertPicks({ item, labels }) {
               {picks === undefined ? (
                 <img src={`../icons/no-pick.svg`} className="logo" alt="" />
               ) : (
-                <img src={`../icons/${picks}.svg`} className="logo" alt="" />
+                <img
+                  src={`../icons/${picks.team_id}.svg`}
+                  className="logo"
+                  alt=""
+                />
               )}
             </div>
           );

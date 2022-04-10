@@ -3,7 +3,6 @@ import "./PicksPopup.scss";
 import { Link } from "react-router-dom";
 
 function PicksPopup({ pick, setPopUp, addPicks, setPick }) {
-
   return (
     <div className="popup-container">
       <div className="popup-content">
@@ -37,4 +36,3 @@ function PicksPopup({ pick, setPopUp, addPicks, setPick }) {
 }
 
 export default PicksPopup;
-

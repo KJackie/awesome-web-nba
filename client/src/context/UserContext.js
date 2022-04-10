@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { createContext, useEffect, useState } from "react";
-import domain from '../util/domain'
+import domain from "../util/domain";
 
 const UserContext = createContext();
 
@@ -17,7 +17,9 @@ function UserContextProvider(props) {
   }, []);
 
   return (
-    <UserContext.Provider value={{user, getUser}}>{props.children}</UserContext.Provider>
+    <UserContext.Provider value={{ user, getUser }}>
+      {props.children}
+    </UserContext.Provider>
   );
 }
 

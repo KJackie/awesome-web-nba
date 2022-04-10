@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import ErrorMessage from "../misc/ErrorMessage";
 import "./AuthForm.scss";
-import "./AuthPages.scss"
-import domain from '../../util/domain'
+import "./AuthPages.scss";
+import domain from "../../util/domain";
 
 function Login() {
   const [formEmail, setFormEmail] = useState("");
@@ -55,14 +55,12 @@ function Login() {
             <label htmlFor="form-email">Email</label>
             <input
               type="email"
-              value={formEmail}
               id="form-email"
               onChange={(e) => setFormEmail(e.target.value)}
             />
             <label htmlFor="form-password">Password</label>
             <input
               type="password"
-              value={formPassword}
               id="form-password"
               onChange={(e) => setFormPassword(e.target.value)}
             />

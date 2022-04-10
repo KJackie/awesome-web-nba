@@ -54,14 +54,14 @@ function Login() {
             <label htmlFor="form-email">Email</label>
             <input
               type="email"
-              value={'demoaccount@gmail.com'}
+              defaultValue={'demoaccount@gmail.com'}
               id="form-email"
               onSubmit={() => setDemoFormEmail('demoaccount@gmail.com')}
             />
             <label htmlFor="form-password">Password</label>
             <input
               type="password"
-              value={'demopassword'}
+              defaultValue={'demopassword'}
               id="form-password"
               onSubmit={() => setDemoFormPassword('demopassword')}
             />

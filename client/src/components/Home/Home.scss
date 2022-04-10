@@ -73,6 +73,8 @@
     padding: 0 1rem;
     .first {
       margin-right: auto;
+      
+
     }
     .second {
       margin-left: auto;
@@ -83,8 +85,17 @@
       justify-content: space-between;
       background-color: #fff;
       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-      padding: 1rem;
       border-radius: 8px;
+      position: relative;
+      height: 65px;
+      .demo-bar-content {
+        width: 100%;
+        display: flex;
+        position: absolute;
+        flex-shrink: 0;
+        height: 100%;
+        background-color: #fff;
+      }
       .vegas-odds {
         width: 60%;
         display: flex;
@@ -235,6 +246,7 @@
     padding: 0.5rem;
     background-color: #fff;
     margin-top: 2rem;
+
     .consensus-box {
       height: 100%;
       position: relative;

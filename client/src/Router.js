@@ -1,19 +1,16 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
 import Home from "./components/Home/Home";
 import HomeNavbar from "./components/Navbar/HomeNavbar";
-import MakePicks from "./components/Picks/MakePicks";
 import Navbar from "./components/Navbar/Navbar";
 import domain from "./util/domain";
 import Pool from "./components/Pool/Pool";
 import PicksPage from "./components/Picks/PicksPage";
-import ShowPicks from "./components/Picks/ShowPicks";
-import UserContext from "./context/UserContext";
-import axios from "axios";
+
 import Games from "./components/Games/Games";
-import BetCalc from './components/BetCalc/BetCalc'
+import BetCalc from "./components/BetCalc/BetCalc";
 function Router() {
   const [data, setData] = useState([]);
   const [games, setGames] = useState([]);

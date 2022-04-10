@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Expand from "./Expand";
-function GameCard({ data, filterGames }) {
+function GameCard({ data}) {
   const [expand, setExpand] = useState(false);
 
   return (

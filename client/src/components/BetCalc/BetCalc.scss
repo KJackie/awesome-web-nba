@@ -1,3 +1,5 @@
+@import "../../styles/mixins.scss";
+
 .bet-calc-page {
   padding: 0 8rem;
   height: auto;
@@ -5,6 +7,7 @@
   display: flex;
   width: 100%;
   position: relative;
+  margin-top: 2rem;
   .left {
     width: 50%;
     .game-boxes {
@@ -63,11 +66,21 @@
               justify-content: center;
               gap: 1rem;
               align-items: center;
-              outline: 2px solid black;
+              outline: 1px solid lightgray;
+
+              &:hover {
+               background-color: var(--secondary-color);
+               cursor: pointer;
+               color: white;
+              }
+              &:hover p {
+               color: white;
+              }
               p {
                 font-size: 0.8rem;
-                color: rgb(44, 160, 44);
                 font-weight: bold;
+                color: var(--secondary-color);
+
               }
             }
           }
@@ -85,45 +98,96 @@
   }
 
   .right {
-    width: 50%;
+    width: 40%;
     display: flex;
-    align-items: center;
-    height: 100vh;
+    height: 90%;
+    position: fixed;
+      top: 200px;
+      right: 8rem;
     .calculator {
-      outline: 2px solid slateblue;
       width: 80%;
-      height: 80%;
+      height: 100%;
       margin-left: auto;
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      border-radius: 8px;
+      padding: 2rem 2rem;
+      .show-mobile {
+       display: none;
+      }
+      .calc-btn {
+       background-color: black;
+       color: white;
+       width: 100%;
+       height: 50px;
+      }
       .bet-box {
-        border: 1px solid lightgray;
-        padding: 1rem;
+        padding: 1rem 0;
+        .total-winnings {
+          font-size: 4rem;
+          font-weight: 800;
+        }
+        .view-payout {
+          p {
+           font-size: 2rem;
+          }
+        }
         .odds {
           p {
             font-size: 2rem;
+            margin-top: 1rem;
           }
         }
-        .payout {
-          .total-winnings {
-           font-size: 3rem;
-           
-          }
-          .view-payout {
-           color: red;
-          }
-        }
+       
+
         h1 {
           font-size: 1rem;
         }
         p {
           font-weight: lighter;
         }
+
         input {
           height: 50px;
           width: 25%;
           font-size: 2rem;
-          margin: 1rem 0;
+          margin-top: 1rem;
         }
       }
     }
   }
+}
+
+
+// PHONE SIZE
+@include phone {
+ .bet-calc-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0;
+  padding: 1rem;
+  
+  .left {
+   width: 100%;
+   height: 100%;
+   display: none;
+  }
+  .right {
+   width: 100%;
+   top: 100px;
+   right: 0;
+   position: relative;
+   .calculator {
+    width: 100%;
+    height: 100%;
+    .hide-mobile {
+     display: none;
+    }
+    .show-mobile {
+     display: block;
+    }
+   }
+  }
+ }
+
 }

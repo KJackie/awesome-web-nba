@@ -54,7 +54,7 @@ function PicksPage({ data, sortedGames }) {
     });
   }
 
-  //PICK??
+  //PICK
   let [pick, setPick] = useState([]);
 
   // ERROR MESSAGE

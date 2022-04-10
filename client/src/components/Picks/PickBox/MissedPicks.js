@@ -9,7 +9,7 @@ function MissedPicks({ item }) {
           type="radio"
           name={item?.id}
           id="radio"
-          value={"no-pick"}
+          defaultValue={"no-pick"}
           checked
         />
         <div className="logo">
@@ -48,7 +48,7 @@ function MissedPicks({ item }) {
           type="radio"
           name={item.id}
           id="radio"
-          value={"no-pick"}
+          defaultValue={"no-pick"}
           className="radio"
         />
         <div className="team-id">

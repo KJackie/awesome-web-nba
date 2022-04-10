@@ -9,18 +9,22 @@ function UserBox({ username, favTeam, user, logOut }) {
         <p>{username}</p>
         <img src={`../icons/${favTeam}.svg`} className="team-logo" alt="" />
       </div>
+      <div className="user-links">
+        <Link to="/picks" className="link btn">
+          Your Picks
+        </Link>
+        <Link to="/pool" className="link btn">
+          Vew Pool
+        </Link>
+        <Link to="/games" className="link btn">
+          Games
+        </Link>
+        <Link to="/betcalculator" className="link btn">
+          Calculator
+        </Link>
+      </div>
       {user ? (
         <div className="user-controls">
-          <Link to="/picks" className="link btn">
-            Your Picks
-          </Link>
-          <Link to="/pool" className="link btn">
-            Vew Pool
-          </Link>
-          <Link to="/games" className="link btn">
-            Games
-          </Link>
-
           <button className="logout-btn btn" onClick={logOut}>
             Log out
           </button>

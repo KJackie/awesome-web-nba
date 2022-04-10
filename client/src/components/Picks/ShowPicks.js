@@ -3,7 +3,7 @@ import "./ShowPicks.scss";
 import axios from "axios";
 import domain from "../../util/domain";
 
-function ShowPicks({ picks, getPicks, editPicks, data, gameDate }) {
+function ShowPicks({ picks, getPicks }) {
 
   // DELETE PICKS
   async function deletePicks() {

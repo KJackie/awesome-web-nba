@@ -1,10 +1,5 @@
-import React, {useEffect, useState} from "react";
-import domain from '../../../util/domain'
-function PoolLabels({labels}) {
-  
-
-  
-
+import React from "react";
+function PoolLabels({ labels }) {
   return (
     <div className="label-container">
       <div className="labels">
@@ -33,7 +28,7 @@ function PoolLabels({labels}) {
 
                 <p> vs</p>
 
-                {item.live_road_team_score? (
+                {item.live_road_team_score ? (
                   <p className="score"> {item.live_road_team_score}</p>
                 ) : (
                   <p className="score"> 0 </p>

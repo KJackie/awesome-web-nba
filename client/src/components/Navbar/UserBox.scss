@@ -4,12 +4,12 @@
   position: absolute;
   right: 0;
   top: 2rem;
-  width: 340px;
-  height: 150px;
+  width: 380px;
+  height: 200px;
   z-index: 9999;
   padding: 1rem;
   border-radius: 5px;
-  background-color: #fff;
+  background-color: rgb(255, 255, 255);
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 10px 0px;
   display: flex;
   .user-box-contents {
@@ -26,13 +26,20 @@
         max-width: 50px;
       }
     }
-    .user-controls {
+
+    .user-links {
       border-bottom: 1px solid lightgray;
+      a {
+        font-weight: lighter;
+      }
+    }
+    .user-controls,
+    .user-links {
       height: 50px;
       @include alignCenter();
-      gap: 1rem;
       color: var(--secondary-color);
       width: 100%;
+      justify-content: space-between;
       .logout-btn {
         margin-left: auto;
       }
@@ -42,4 +49,3 @@
     }
   }
 }
-

@@ -25,16 +25,7 @@ function Home({ gameAPI }) {
             <div className="title">
               <div className="home-text">
                 <h1> Join the Pool </h1>
-                {/* <p>
-              {" "}
-              Click{" "}
-              <span>
-                <Link to="/register" className="link btn">
-                  here
-                </Link>
-              </span>{" "}
-              to get started.{" "}
-            </p> */}
+
                 <p>
                   Stay updated on what's going on in the league and make daily
                   nba picks against real players in the pool!
@@ -53,81 +44,75 @@ function Home({ gameAPI }) {
             <div className="title">
               <div className="home-text">
                 <h1> Todays Top Picks </h1>
-                {/* <p>
-            {" "}
-            Click{" "}
-            <span>
-              <Link to="/register" className="link btn">
-                here
-              </Link>
-            </span>{" "}
-            to get started.{" "}
-          </p> */}
+
                 <p>The experts most confident picks.</p>
               </div>
             </div>
           </div>
         )}
-
         <div className="right">
           <div className="demo-bar first">
             {consensus.map((item, index) => {
-              if (item.ht_pct_ats_experts > 80) {
+              if (item.ht_pct_ats_experts > 40) {
                 return (
-                  <>
-                    <div className="home">
-                      <img
-                        src={`../icons/${item?.home_team_id}.svg`}
-                        className="team-logo"
-                        alt=""
-                      />
-                      <p>{item?.home_team_id}</p>
-                    </div>
-                    <div className="vegas-odds">
-                      <p>{item?.ht_pct_ats_experts}% </p>
-                      <p> vs </p>
-                      <p>{item?.rt_pct_ats_experts}% </p>
-                    </div>
-                    <div className="away">
-                      <img
-                        src={`../icons/${item?.road_team_id}.svg`}
-                        className="team-logo"
-                        alt=""
-                      />
-                      <p>{item?.road_team_id}</p>
-                    </div>
-                  </>
+                  <div className="demo-bar-content" key={index}>
+                    <>
+                      <div className="home">
+                        <img
+                          src={`../icons/${item?.road_team_id}.svg`}
+                          className="team-logo"
+                          alt=""
+                        />
+                        <p>{item?.road_team_id}</p>
+                      </div>
+                      <div className="vegas-odds">
+                        <p>{item?.rt_pct_ats_combined}% </p>
+                        <p> vs </p>
+                        <p>{item?.ht_pct_ats_combined}% </p>
+                      </div>
+                      <div className="away">
+                        <img
+                          src={`../icons/${item?.home_team_id}.svg`}
+                          className="team-logo"
+                          alt=""
+                        />
+                        <p>{item?.home_team_id}</p>
+                      </div>
+                    </>
+                  </div>
                 );
               }
             })}
           </div>
           <div className="demo-bar second">
             {consensus.map((item, index) => {
-              if (item.rt_pct_ats_experts > 80) {
+              if (item.rt_pct_ats_experts > 60) {
                 return (
-                  <>
-                    <div className="home">
-                      <img
-                        src={`../icons/${item?.road_team_id}.svg`}
-                        className="team-logo"
-                        alt=""
-                      />
-                      <p>{item?.road_team_id}</p>
-                    </div>
-                    <div className="vegas-odds">
-                      <p>{item?.ht_pct_ats_experts}% </p>
-                      <p> vs </p>
-                      <p>{item?.rt_pct_ats_experts}% </p>
-                    </div>
-                    <div className="away">
-                      <img
-                        src={`../icons/${item?.home_team_id}.svg`}
-                        className="team-logo"
-                        alt=""
-                      />
-                      <p>{item?.home_team_id}</p>
-                    </div>
-                  </>
+                  <div className="demo-bar-content" key={index}>
+                    <>
+                      <div className="home">
+                        <img
+                          src={`../icons/${item?.road_team_id}.svg`}
+                          className="team-logo"
+                          alt=""
+                        />
+                        <p>{item?.road_team_id}</p>
+                      </div>
+                      <div className="vegas-odds">
+                        <p>{item?.rt_pct_ats_combined}% </p>
+                        <p> vs </p>
+                        <p>{item?.ht_pct_ats_combined}% </p>
+                      </div>
+                      <div className="away">
+                        <img
+                          src={`../icons/${item?.home_team_id}.svg`}
+                          className="team-logo"
+                          alt=""
+                        />
+                        <p>{item?.home_team_id}</p>
+                      </div>
+                    </>
+                  </div>
                 );
               }
             })}
@@ -140,7 +125,7 @@ function Home({ gameAPI }) {
         <div className="videos">
           {gameAPI?.videos?.map((item, index) => {
             return (
-              <div className="video-box">
+              <div className="video-box" key={index}>
                 <video
                   src={item.links.mobile.source.href}
                   controls="controls"
@@ -153,38 +138,6 @@ function Home({ gameAPI }) {
           })}
         </div>
       </div>
-      {/* <div className="consensus-container-home">
-        <h1> Expert Consensus </h1>
-        <div className="best-picks">
-          {consensus.map((item, index) => {
-            return (
-              <div className="consensus-box">
-                <div className="teams">
-                  <div className="home-side">
-                    <img
-                      src={`../icons/${item?.home_team_id}.svg`}
-                      className="team-logo"
-                      alt=""
-                    />
-                    <p>{item.ht_pct_ats_combined}%</p>
-                  </div>
-                  <p>vs</p>
-
-                  <div className="road-side">
-                    <img
-                      src={`../icons/${item?.road_team_id}.svg`}
-                      className="team-logo"
-                      alt=""
-                    />{" "}
-                    <p>{item.rt_pct_ats_combined}%</p>
-                  </div>
-                </div>
-                <div className="odds"></div>
-              </div>
-            );
-          })}
-        </div>
-      </div> */}
     </>
   );
 }

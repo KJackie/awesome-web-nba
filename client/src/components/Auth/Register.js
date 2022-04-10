@@ -49,9 +49,8 @@ function Register() {
   }
 
   function selectTeam() {
-    let favTeam = document.getElementById('fav-team').value;
-    setFormFavTeam(favTeam)
-
+    let favTeam = document.getElementById("fav-team").value;
+    setFormFavTeam(favTeam);
   }
 
   return (
@@ -69,37 +68,33 @@ function Register() {
             <label htmlFor="form-email">Email</label>
             <input
               type="email"
-              value={formEmail}
               id="form-email"
               onChange={(e) => setFormEmail(e.target.value)}
             />
             <label htmlFor="form-username">Username</label>
             <input
               type="text"
-              value={formUsername}
               id="form-username"
               onChange={(e) => setFormUsername(e.target.value)}
             />
             <label htmlFor="form-password">Password</label>
             <input
               type="password"
-              value={formPassword}
               id="form-password"
               onChange={(e) => setFormPassword(e.target.value)}
             />
             <label htmlFor="form-password-confirm">Confirm Password</label>
             <input
               type="password"
-              value={formPasswordConfirm}
               id="form-password-confirm"
               onChange={(e) => setFormPasswordConfirm(e.target.value)}
             />
             <label htmlFor="fav-team">Favorite Team</label>
-            <select id="fav-team" onChange={selectTeam} >
+            <select id="fav-team" onChange={selectTeam}>
               <option> Choose a team </option>
 
-              {data.map((option) => {
-                return <option value={option} > {option} </option>;
+              {data.map((option, index) => {
+                return <option key={index} value={option}> {option} </option>;
               })}
             </select>
           </div>

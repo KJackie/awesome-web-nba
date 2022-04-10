@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import "./Games.scss";
 import Card from "./Card/Card";
 import Controls from "./Controls/Controls";

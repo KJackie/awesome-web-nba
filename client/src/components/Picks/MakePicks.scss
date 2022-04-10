@@ -43,13 +43,14 @@
         width: 100%;
         display: flex;
         font-family: "Roboto", sans-serif;
-
         .game {
           width: 100%;
           @include alignCenter();
           flex-shrink: 0;
           padding: 1rem;
-          justify-content: space-evenly;
+          justify-content: space-between;
+          
+
           .highlight {
             background: #ffffaa;
             color: black;
@@ -105,9 +106,14 @@
         .add-btn {
           background-color: black;
           color: white;
-          width: 80%;
+          width: 20%;
           height: 60px;
           font-family: "Roboto", sans-serif;
+          &:hover {
+            outline: 1px solid black;
+            color: black;
+            background-color: white;
+          }
         }
       }
     }
