@@ -26,11 +26,11 @@ function Games({gameAPI, setDate, date}) {
     });
   };
 
+
   return (
     <div className="game-page">
       <div className="game-controls">
         <Controls
-          gameAPI={gameAPI}
           gameDate={gameDate}
           increase={increase}
           decrease={decrease}

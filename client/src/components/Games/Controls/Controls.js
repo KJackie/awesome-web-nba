@@ -2,11 +2,8 @@ import React from "react";
 import "./Controls.scss";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 function Controls({
-  gameAPI,
   decrease,
   increase,
-  setFilterGames,
-  filterGames,
   gameDate,
 }) {
   return (

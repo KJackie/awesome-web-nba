@@ -13,7 +13,6 @@ function BetCalc() {
       });
   }, []);
 
-  console.log(games);
 
   // CALCULATE BETS
   const [wager, setWager] = useState(0);

@@ -14,18 +14,18 @@ function MissedPicks({ item }) {
         />
         <div className="logo">
           <img
-            src={`../icons/${item.homeEventResult.competitor.shortName}.svg`}
+            src={`../icons/${item.home_team_id}.svg`}
             className="team-logo"
             alt=""
           />
         </div>
 
         <div className="team-id">
-          <p> {item.homeEventResult.competitor.location}</p>
+          <p> {item.home_team_id}</p>
           <p> Home </p>
         </div>
         <div className="abbr">
-          <p> {item.homeEventResult.competitor.shortName}</p>
+          <p> {item.home_team_id}</p>
         </div>
       </label>
 
@@ -38,7 +38,7 @@ function MissedPicks({ item }) {
       <label className="box no-pick">
         <div className="logo">
           <img
-            src={`../icons/${item.awayEventResult.competitor.shortName}.svg`}
+            src={`../icons/${item.road_team_id}.svg`}
             className="team-logo"
             alt=""
           />
@@ -52,11 +52,11 @@ function MissedPicks({ item }) {
           className="radio"
         />
         <div className="team-id">
-          <p> {item.awayEventResult.competitor.location}</p>
+          <p> {item.road_team_id}</p>
           <p> Away </p>
         </div>
         <div className="abbr">
-          <p> {item.awayEventResult.competitor.shortName}</p>
+          <p> {item.road_team_id}</p>
         </div>
       </label>
     </div>

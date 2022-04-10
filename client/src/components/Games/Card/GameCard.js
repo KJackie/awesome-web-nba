@@ -18,7 +18,7 @@ function GameCard({ data}) {
         </div>
         {data.competitions.map((data, index) => {
           return (
-            <div className="prev-home-away">
+            <div key={index} className="prev-home-away">
               <div className="away">
                 <img
                   src={`../icons/${data.competitors[1].team.abbreviation}.svg`}
@@ -36,7 +36,7 @@ function GameCard({ data}) {
                 />
                 <p>{data.competitors[0].team.abbreviation}</p>
                 <p className="score">{data.competitors[0].score}</p>
-                <p>{data.competitors[0].records.summary}</p>
+                <p>{data.competitors[0].records?.summary}</p>
               </div>
               
             </div>

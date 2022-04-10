@@ -5,7 +5,7 @@ import PickInstructions from "./PickInstructions";
 import PicksPopup from "../Popup/PicksPopup";
 import PickBox from "./PickBox/PickBox";
 
-function MakePicks({ data, pick, setPick, addPicks, sortedGames }) {
+function MakePicks({ data, pick, setPick, addPicks, labels }) {
   const [locked, setLocked] = useState(true);
   const [popUp, setPopUp] = useState(false);
 
@@ -48,7 +48,7 @@ function MakePicks({ data, pick, setPick, addPicks, sortedGames }) {
 
           {/* RENDER GAME BOXES  */}
           <div className="games-container">
-            {sortedGames.map((item, index) => {
+            {labels.map((item, index) => {
               return <PickBox item={item} index={index} />;
             })}
 

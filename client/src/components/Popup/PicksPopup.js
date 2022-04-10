@@ -1,6 +1,7 @@
 import React from "react";
 import "./PicksPopup.scss";
 import { Link } from "react-router-dom";
+import { BsArrowRight } from "react-icons/bs";
 
 function PicksPopup({ pick, setPopUp, addPicks, setPick }) {
   return (
@@ -9,16 +10,24 @@ function PicksPopup({ pick, setPopUp, addPicks, setPick }) {
         <h1> Your Picks </h1>
         <div className="chosen-picks">
           {pick.map((item) => {
-            return (
-              <img src={`../icons/${item}.svg`} className="popup-logo" alt="" />
-            );
+            if (item !== "no-pick") {
+              return (
+                <img
+                  src={`../icons/${item}.svg`}
+                  className="popup-logo"
+                  alt=""
+                />
+              );
+            }
           })}
         </div>
-        <p>Reset your picks or continue to the pool</p>
+        <p className="mobile-info">
+          Scroll to see all your picks <BsArrowRight />
+        </p>
 
         <div className="btn-container-popup">
           <button
-            className="btn"
+            className="edit-btn"
             onClick={() => {
               setPopUp(false);
               setPick([]);
@@ -26,8 +35,8 @@ function PicksPopup({ pick, setPopUp, addPicks, setPick }) {
           >
             Edit
           </button>
-          <Link className="btn" onClick={addPicks} to="/pool">
-            Pool
+          <Link className="save-btn" onClick={addPicks} to="/pool">
+            Save Picks
           </Link>
         </div>
       </div>

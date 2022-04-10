@@ -78,7 +78,10 @@ function Pool() {
 
   return (
     <div className="pool">
-      <PoolLabels labels={labels} />
+ 
+      <PoolLabels labels={labels}  />
+
+      
       <div className="all-picks">
         {poolData.map((item, index) => {
           return <UserPicks item={item} sortedGames={sortedGames} />;

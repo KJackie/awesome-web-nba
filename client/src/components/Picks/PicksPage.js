@@ -54,6 +54,18 @@ function PicksPage({ data, sortedGames }) {
     });
   }
 
+
+  const [labels, setLabels] = useState([])
+
+  useEffect(() => {
+    fetch(`${domain}/consensus`)
+      .then((res) => res.json())
+      .then((data) => {
+        setLabels(data);
+      });
+  }, []);
+
+
   //PICK
   let [pick, setPick] = useState([]);
 
@@ -100,7 +112,7 @@ function PicksPage({ data, sortedGames }) {
         ? renderPicks()
         : user && (
             <>
-             <MakePicks data={data} addPicks={addPicks} pick={pick} setPick={setPick} sortedGames={sortedGames} />
+             <MakePicks data={data} addPicks={addPicks} pick={pick} setPick={setPick} labels={labels} />
             </>
         )}
       </div>

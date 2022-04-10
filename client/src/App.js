@@ -1,10 +1,14 @@
-import "./styles/App.scss";
+import React, {useState} from "react";
+
 import Router from "./Router";
 import { UserContextProvider } from "../src/context/UserContext";
 import axios from "axios";
-import React from "react";
+import "./styles/App.scss";
+
 
 axios.defaults.withCredentials = true;
+
+
 
 function App() {
   return (

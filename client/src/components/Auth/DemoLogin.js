@@ -40,6 +40,11 @@ function Login() {
     history.push("/");
   }
 
+  function signInAsGuest() {
+    setDemoFormEmail('demoaccount@gmail.com')
+    setDemoFormPassword('demopassword')
+  }
+
   return (
     <div className="demo-login-page">
       <div className="demo-auth-form-login">
@@ -50,24 +55,7 @@ function Login() {
           />
         )}
         <form className="form" onSubmit={login}>
-          <div className="form-inputs">
-            <label htmlFor="form-email">Email</label>
-            <input
-              type="email"
-              defaultValue={'demoaccount@gmail.com'}
-              id="form-email"
-              onSubmit={() => setDemoFormEmail('demoaccount@gmail.com')}
-            />
-            <label htmlFor="form-password">Password</label>
-            <input
-              type="password"
-              defaultValue={'demopassword'}
-              id="form-password"
-              onSubmit={() => setDemoFormPassword('demopassword')}
-            />
-          </div>
-
-          <button className="demo-submit-btn" type="submit">
+          <button className="demo-submit-btn" onClick={signInAsGuest}>
             Continue as Guest <BsArrowRight className="right-arrow" />
           </button>
         </form>

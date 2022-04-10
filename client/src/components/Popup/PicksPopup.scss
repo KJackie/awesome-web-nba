@@ -10,19 +10,26 @@
   @include flexCol();
   justify-content: center;
   margin-top: 2rem;
-
+  height: 400px;
   .popup-content {
     height: 80%;
     @include flexCol();
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     font-size: 1.2rem;
     .chosen-picks {
       display: flex;
+      justify-content: center;
       gap: 1rem;
       height: 40%;
+      width: 100%;
+      margin: 1rem 0;
       .popup-logo {
-        max-width: 65px;
+        max-width: 45px;
       }
+    }
+    .mobile-info {
+      display: none;
     }
     .btn-container-popup {
       display: flex;
@@ -30,9 +37,11 @@
       height: 40%;
       align-items: flex-end;
       margin-top: 2rem;
-      justify-content: space-between;
+      justify-content: center;
       gap: 1rem;
-      .btn {
+
+      .save-btn,
+      .edit-btn {
         width: 250px;
         padding: 10px 30px;
         font-size: 1rem;
@@ -46,7 +55,10 @@
         color: white;
         cursor: pointer;
         border: 0;
-      
+      }
+      .edit-btn {
+        width: 120px;
+        background-color: var(--danger-color);
       }
     }
   }
@@ -57,21 +69,28 @@
   .popup-container {
     width: 100%;
     left: 0;
-    max-height: 50vh;
+    height: 60vh;
     .popup-content {
       width: 100%;
       .chosen-picks {
         display: flex;
-        gap: 1rem;
+        justify-content: flex-start;
         overflow-x: scroll;
+        gap: 1rem;
         margin: 2rem 0;
         .popup-logo {
           max-width: 60px;
         }
       }
+      .mobile-info {
+        display: block;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
     }
     .btn-container-popup {
-
       .btn {
         width: 100%;
         background-color: red;

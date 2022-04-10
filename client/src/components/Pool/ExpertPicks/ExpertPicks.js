@@ -33,12 +33,11 @@ function ExpertPicks({ item, labels }) {
 
       <div className="user-pick">
         {test.map((picks, index) => {
-          console.log(picks);
           if (
-            (labels[index]?.home_team_id === picks &&
+            (labels[index]?.home_team_id === picks.team_id &&
               labels[index]?.live_home_team_score >
                 labels[index]?.live_road_team_score) ||
-            (labels[index]?.road_team_id === picks &&
+            (labels[index]?.road_team_id === picks.team_id &&
               labels[index]?.live_road_team_score >
                 labels[index]?.live_home_team_score)
           ) {
@@ -48,22 +47,22 @@ function ExpertPicks({ item, labels }) {
             <div
               className={
                 // if HOME team = your pick and HOME team is winning... apply 'winning'
-                labels[index]?.home_team_id === picks &&
+                labels[index]?.home_team_id === picks.team_id &&
                 labels[index]?.live_home_team_score >
                   labels[index]?.live_road_team_score
                   ? "winner"
                   : // if AWAY team = your pick and AWAY team is winning... apply 'winning'
-                  labels[index]?.road_team_id === picks &&
+                  labels[index]?.road_team_id === picks.team_id &&
                     labels[index]?.live_road_team_score >
                       labels[index]?.live_home_team_score
                   ? "winner"
                   : // if AWAY team = your pick and AWAY team is losing... apply 'losing'
-                  labels[index]?.road_team_id === picks &&
+                  labels[index]?.road_team_id === picks.team_id &&
                     labels[index]?.live_road_team_score <
                       labels[index]?.live_home_team_score
                   ? "loser"
                   : // if HOME team = your pick and HOME team is losing... apply 'losing'
-                  labels[index]?.home_team_id === picks &&
+                  labels[index]?.home_team_id === picks.team_id &&
                     labels[index]?.live_home_team_score <
                       labels[index]?.live_road_team_score
                   ? "loser"
