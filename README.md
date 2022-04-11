@@ -3,9 +3,11 @@
 
 ### This is a personal project I created to improve my skills with React and MongoDB. The site is currently deployed. The frontend is hosted by Netlify and the backend is hosted by Heroku. The website is fully responsive and works/looks great on mobile devices.
 
+![full-pool](https://user-images.githubusercontent.com/84540947/162833175-4dde667e-fe2c-4710-a10c-a4a87d014016.png)
+
 
 ## Features
-![NBA-Pick_em-14-March-2022](https://user-images.githubusercontent.com/84540947/158294466-4a30e676-16b2-4e96-b817-0c83f7aae16f.gif)
+
 
  ## Frontend
   - Javascript
