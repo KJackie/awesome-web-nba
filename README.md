@@ -1,12 +1,9 @@
 # NBA Pickem is a free daily nba pick'em
-### NBA pick'em pool website where users can make daily NBA picks and compete against others. You can also view live scores, game scoring leaders, and upcoming/previous matches.
+ NBA pick'em pool website where users can make daily NBA picks and compete against others. You can also view live scores, game scoring leaders, and upcoming/previous matches. The frontend is hosted by Netlify and the backend is hosted by Heroku. The website is fully responsive and works/looks great on mobile devices.
 
-### This is a personal project I created to improve my skills with React and MongoDB. The site is currently deployed. The frontend is hosted by Netlify and the backend is hosted by Heroku. The website is fully responsive and works/looks great on mobile devices.
+
 
 ![full-pool](https://user-images.githubusercontent.com/84540947/162833175-4dde667e-fe2c-4710-a10c-a4a87d014016.png)
-
-
-## Features
 
 
  ## Frontend
