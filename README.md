@@ -1,9 +1,19 @@
-# NBA Pickem is a free daily nba pick'em
- NBA pick'em pool website where users can make daily NBA picks and compete against others. You can also view live scores, game scoring leaders, and upcoming/previous matches. The frontend is hosted by Netlify and the backend is hosted by Heroku. The website is fully responsive and works/looks great on mobile devices.
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
+![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+	![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
+ 
+# NBA Pickem 
+### Make daily NBA picks and compete against other players. Also, view live scores and betting odds for the upcomming games.
 
 
+![full-pool](https://user-images.githubusercontent.com/84540947/165803685-5245a0f8-41d6-4129-b4b4-0c9e3440f2af.png)
 
-![full-pool](https://user-images.githubusercontent.com/84540947/162833175-4dde667e-fe2c-4710-a10c-a4a87d014016.png)
+### This website is a daily NBA pickem pool where users can sign up and make daily NBA picks. Users can compete with eachother in the pool and be scored based on their correct picks. I also added ways for the user to view NBA highlights, scores (past, current, and upcomming) and can view betting odds. 
+### This project was created because I am a fan of sports pools and wanted to recreate one using React and add some features that I though were missing from the sites I use.
 
 
  ## Frontend
