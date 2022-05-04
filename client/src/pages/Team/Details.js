@@ -66,11 +66,6 @@ const Details = () => {
 		bar.scrollLeft += -200;
 	}
 
-	function close() {
-		setProfile(false);
-		setStats(false);
-	}
-
 	return (
 		<div className='page'>
 			<div

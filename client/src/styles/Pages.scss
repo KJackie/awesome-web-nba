@@ -1,3 +1,5 @@
+@import '../styles/mixins.scss';
+
 .page {
 	padding: var(--padding);
 	padding-top: 2rem;
@@ -208,5 +210,46 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: 1rem;
+	}
+}
+
+// LAPTOP SIZE
+@include laptop {
+	.navbar {
+		padding: 1rem 8rem 1rem 8rem;
+	}
+}
+
+// MACBOOK SIZE
+@include macbook {
+	.navbar {
+		padding: 1rem 8rem 1rem 8rem;
+	}
+}
+
+// PHONE SIZE
+@include phone {
+	.page {
+		.header {
+			display: flex;
+			padding: 0;
+			.team-info {
+				.name {
+					font-size: 0.8rem;
+				}
+				.info {
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					width: 100%;
+					display: flex;
+					justify-content: center;
+					padding-bottom: 0.3rem;
+				}
+			}
+			.team-stats {
+				display: none;
+			}
+		}
 	}
 }

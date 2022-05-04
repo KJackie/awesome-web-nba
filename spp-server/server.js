@@ -23,12 +23,12 @@ app.use(
 );
 app.use(cookieParser());
 
-app.use('/picks', require('../server/spp-server/routers/userPicksRouter'));
-app.use('/pool', require('../server/spp-server/routers/poolRouter'));
+app.use('/picks', require('./routers/userPicksRouter'));
+app.use('/pool', require('./routers/poolRouter'));
 
-app.use('/auth', require('../server/spp-server/routers/userRouter'));
+app.use('/auth', require('./routers/userRouter'));
 
-app.use('/loggedIn', require('../server/spp-server/routers/loggedInRouter'));
+app.use('/loggedIn', require('./routers/loggedInRouter'));
 
 // connect to mongodb
 
