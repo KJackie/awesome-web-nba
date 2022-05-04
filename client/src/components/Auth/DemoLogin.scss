@@ -1,25 +1,33 @@
-.demo-login-page {
- input,
- label {
-  display: none;
+@import '../../styles/mixins.scss';
 
- }
- width: 50%;
- .demo-submit-btn {
-  text-decoration: underline;
-  position: relative;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  &:hover {
-   color: var(--secondary-color);
-   transition: all 100ms ease-in-out;
-  }
-  .right-arrow {
-   height: 100%;
-   margin-left: 0.5rem;
-   color: var(--secondary-color);
-   font-weight: bolder;
-  }
- }
+.demo-login-page {
+	input,
+	label {
+		display: none;
+	}
+	.demo-submit-btn {
+		text-decoration: underline;
+		position: relative;
+		height: 40px;
+		display: flex;
+		align-items: center;
+		&:hover {
+			color: var(--secondary-color);
+			transition: all 100ms ease-in-out;
+		}
+		.right-arrow {
+			height: 100%;
+			margin-left: 0.5rem;
+			color: var(--secondary-color);
+			font-weight: bolder;
+		}
+	}
+}
+
+// PHONE SIZE
+@include phone {
+	.demo-submit-btn {
+		font-size: 1.2rem;
+		gap: 1rem;
+	}
 }

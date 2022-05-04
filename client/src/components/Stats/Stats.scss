@@ -1,0 +1,91 @@
+.stats {
+	width: 100%;
+	height: auto;
+
+	.stat-content {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		.side-labels {
+			width: 100px;
+			height: 100%;
+
+			padding-top: 1rem;
+			h1 {
+				height: 50px;
+				font-size: 1rem;
+			}
+		}
+		.labels {
+			width: 100%;
+			height: 50px;
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+			padding-left: 100px;
+			border-bottom: 1px solid lightgray;
+			.label {
+				display: flex;
+				width: 100%;
+				position: relative;
+				justify-content: flex-end;
+				.description-bar {
+					background-color: #202020;
+					display: flex;
+					color: white;
+					height: 40px;
+					position: absolute;
+					top: -55px;
+					font-size: 0.8rem;
+					left: 100px;
+					width: 220px;
+					height: auto;
+					padding: 1rem;
+					border-radius: 8px;
+					transition: all 200ms ease-in-out;
+					opacity: 0.9;
+				}
+				p {
+					display: flex;
+					align-items: center;
+					font-size: 0.9rem;
+				}
+				.info-icon {
+					height: 100%;
+					display: flex;
+					align-items: center;
+					font-size: 0.8rem;
+					margin-left: 4px;
+				}
+			}
+		}
+		.values {
+			display: flex;
+			gap: 1rem;
+			padding-left: 100px;
+			position: relative;
+			.value-labels {
+				position: absolute;
+				font-size: 0.5rem;
+				left: 0;
+				margin-top: 1rem;
+				h1 {
+					height: 50px;
+				}
+			}
+			.bar {
+				display: flex;
+				flex-direction: column;
+				width: 120px;
+				margin-top: 1rem;
+				p {
+					height: 50px;
+					width: 100%;
+					display: flex;
+					justify-content: flex-end;
+				}
+			}
+		}
+	}
+}

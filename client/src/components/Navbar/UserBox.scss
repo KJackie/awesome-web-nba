@@ -1,51 +1,51 @@
-@import "../../styles/mixins.scss";
+@import '../../styles/mixins.scss';
 
 .user-sub-nav {
-  position: absolute;
-  right: 0;
-  top: 2rem;
-  width: 380px;
-  height: 200px;
-  z-index: 9999;
-  padding: 1rem;
-  border-radius: 5px;
-  background-color: rgb(255, 255, 255);
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 10px 0px;
-  display: flex;
-  .user-box-contents {
-    width: 100%;
-    @include flexCol();
-    .user-box-top {
-      border-bottom: 1px solid lightgray;
-      @include alignCenter();
-      justify-content: space-between;
-      font-family: var(--primaryFont);
-      font-size: 1.2rem;
-      width: 100%;
-      img {
-        max-width: 50px;
-      }
-    }
+	position: absolute;
+	right: 0;
+	top: 2rem;
+	width: 380px;
+	height: 200px;
+	z-index: 9999;
+	padding: 1rem;
+	border-radius: 5px;
+	background-color: rgb(255, 255, 255);
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 10px 0px;
+	display: flex;
+	.user-box-contents {
+		width: 100%;
+		@include flexCol();
+		.user-box-top {
+			border-bottom: 1px solid lightgray;
+			@include alignCenter();
+			justify-content: space-between;
+			font-family: var(--primaryFont);
+			font-size: 1.2rem;
+			width: 100%;
+			img {
+				max-width: 50px;
+			}
+		}
 
-    .user-links {
-      border-bottom: 1px solid lightgray;
-      a {
-        font-weight: lighter;
-      }
-    }
-    .user-controls,
-    .user-links {
-      height: 50px;
-      @include alignCenter();
-      color: var(--secondary-color);
-      width: 100%;
-      justify-content: space-between;
-      .logout-btn {
-        margin-left: auto;
-      }
-      p {
-        cursor: pointer;
-      }
-    }
-  }
+		.user-links {
+			border-bottom: 1px solid lightgray;
+			a {
+				font-weight: lighter;
+			}
+		}
+		.user-controls,
+		.user-links {
+			height: 50px;
+			@include alignCenter();
+			color: var(--secondary-color);
+			width: 100%;
+			gap: 1rem;
+			.logout-btn {
+				margin-left: auto;
+			}
+			p {
+				cursor: pointer;
+			}
+		}
+	}
 }

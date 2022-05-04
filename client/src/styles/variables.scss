@@ -1,12 +1,38 @@
 :root {
- --primary-color: #f5f5f5;
- --secondary-color: #2D31FA;
- --accent-color: #C9092A;
- --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.03);
- --dark-color: #e7e6e6;
- --text-light: #ffffff;
- --danger-color: #EF4056;
- --black: #1e1e1e;
- --primaryFont: "Oswald", sans-serif;
- --secondaryFont: 'Roboto', sans-serif;
+	--primary-color: #f5f5f5;
+	--secondary-color: #2d31fa;
+	--accent-color: #c9092a;
+	--box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.03);
+	--dark-color: #e7e6e6;
+	--text-light: #ffffff;
+	--danger-color: #ef4056;
+	--black: #1e1e1e;
+	--primaryFont: 'Oswald', sans-serif;
+	--secondaryFont: 'Roboto', sans-serif;
+	--padding: 0rem 20rem;
+	--white: #fff;
+}
+
+@media (max-width: 1700px) {
+	:root {
+		--padding: 0rem 10rem;
+	}
+}
+
+@media (max-width: 1400px) {
+	:root {
+		--padding: 0rem 7rem;
+	}
+}
+
+@media (max-width: 1140px) {
+	:root {
+		--padding: 0rem 4rem;
+	}
+}
+
+@media (max-width: 970px) {
+	:root {
+		--padding: 0rem 2rem;
+	}
 }
