@@ -57,7 +57,6 @@ const Stats = ({ stats, rebounds }) => {
 
 	// 'AST', 'PTS', 'FGM', '3PA'
 
-	console.log(stats);
 
 	return (
 		<div className='stats'>
@@ -74,7 +73,6 @@ const Stats = ({ stats, rebounds }) => {
 					</div>
 
 					{labelArray.map((item, index) => {
-						console.log(stats?.stats[0]?.shortDisplayName);
 					})}
 					{stats?.stats?.map((item, index) => {
 						if (labelArray.includes(item.name))

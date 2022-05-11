@@ -7,7 +7,6 @@ const Schedule = () => {
 	// import schedule from store
 	const schedule = useSelector((state) => state.schedule);
 
-	console.log(schedule);
 	return (
 		<div className='schedule'>
 			<div className='show-schedule'>

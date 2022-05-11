@@ -2,7 +2,6 @@ import React from 'react';
 import moment from 'moment';
 
 const ScheduleCard = ({ data }) => {
-	console.log(data);
 
 	let date = data.date;
 

@@ -17,8 +17,6 @@ function Home({ gameAPI }) {
 			});
 	}, []);
 
-	console.log(consensus);
-
 	return (
 		<>
 			<div className='home-page'>
@@ -69,7 +67,7 @@ function Home({ gameAPI }) {
 					<div className='right'>
 						<div className='demo-bar first'>
 							{consensus.map((item, index) => {
-								if (item.ht_pct_ats_combined < item.rt_pct_ats_combined) {
+								if (item.ht_pct_ats_combined > item.rt_pct_ats_combined) {
 									return (
 										<div className='demo-bar-content' key={index}>
 											<>

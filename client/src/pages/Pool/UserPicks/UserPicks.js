@@ -2,8 +2,7 @@ import React from 'react';
 
 function UserPicks({ item, labels }) {
 	let recordCount = 0;
-	console.log(item);
-	console.log(labels);
+
 	return (
 		<div className='user-pick-box'>
 			<div className='user'>

@@ -18,6 +18,8 @@ function MakePicks({ data, pick, setPick, addPicks, labels }) {
 		}
 	}
 
+	console.log(pick);
+
 	// set background color for selected teams.
 	$(document).ready(function () {
 		$('input:radio').change(function () {
