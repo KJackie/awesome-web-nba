@@ -5,42 +5,56 @@ import axios from 'axios';
 import domain from '../../util/domain';
 import ShowPicks from './ShowPicks';
 import moment from 'moment';
+import HomeNavbar from '../../components/Navbar/HomeNavbar';
 import './PicksPage.scss';
+import Register from '../../components/Auth/Register';
+import Login from '../../components/Auth/Login';
 function PicksPage({ data, sortedGames }) {
+	const [register, setRegister] = useState(false);
+	const [login, setLogin] = useState(true);
+
 	const { user } = useContext(UserContext);
 
-	// GET PICKS
+	// store picks
 	const [picks, setPicks] = useState([]);
-	// GET EMAIL
+	// store email
 	const [email, setEmail] = useState('');
-	// GET USERNAME
+	// store username
 	const [username, setUsername] = useState('');
 
-	// GET USER FROM DATABASE
+	// Get current user from db
 	async function getUser() {
-		const userRes = await axios.get(`${domain}/loggedIn/${user}`);
-		setEmail(userRes.data.email);
-		setUsername(userRes.data.username);
+		if (user)
+			try {
+				const userRes = await axios.get(`${domain}/loggedIn/${user}`);
+				setEmail(userRes.data.email);
+				setUsername(userRes.data.username);
+			} catch (err) {
+				console.log(err);
+			}
 	}
 	getUser();
 
+	// if user is true, get their picks
 	useEffect(() => {
 		if (!user) setPicks([]);
 		else getPicks();
 	}, [user]);
 
-	// GET USER PICKS FROM DATABASE
+	// Get current user picks from db
 	async function getPicks() {
 		const pickRes = await axios.get(`${domain}/picks/`);
 		setPicks(pickRes.data);
 	}
 
-	// RENDER PICKS
+	// Render the picks
 	function renderPicks() {
 		let sortedPicks = [...picks];
+		// sort picks by most recent
 		sortedPicks = sortedPicks.sort((a, b) => {
 			return new Date(b.createdAt) - new Date(a.createdAt);
 		});
+		// return the sorted picks
 		return sortedPicks.map((picks, i) => {
 			return (
 				<ShowPicks
@@ -94,6 +108,7 @@ function PicksPage({ data, sortedGames }) {
 
 	return (
 		<div className='picks-page'>
+			<HomeNavbar setRegister={setRegister} setLogin={setLogin} />
 			<div className='content'>
 				{picks.length < 0 && (
 					<p className='content-date'>
@@ -120,6 +135,12 @@ function PicksPage({ data, sortedGames }) {
 							</>
 					  )}
 			</div>
+			{register && !user && (
+				<Register setRegister={setRegister} setLogin={setLogin} />
+			)}
+			{login && !user && (
+				<Login setLogin={setLogin} setRegister={setRegister} />
+			)}
 		</div>
 	);
 }

@@ -2,13 +2,16 @@ import React, { useState } from 'react';
 import './MakePicks.scss';
 import $ from 'jquery';
 import PickInstructions from './PickInstructions';
-import PicksPopup from '../../components/Popup/PicksPopup';
+import PicksPopup from './PicksPopup';
 import PickBox from './PickBox/PickBox';
 
 function MakePicks({ data, pick, setPick, addPicks, labels }) {
+	// store locked boolean
 	const [locked, setLocked] = useState(true);
+	// store picks popup boolean
 	const [popUp, setPopUp] = useState(false);
 
+	// if a pick (radio button) is checked (yellow background) add to setPick array
 	function handleSubmit() {
 		let radios = document.querySelectorAll('#radio');
 		for (let i = 0; i < radios.length; i++) {
@@ -17,8 +20,6 @@ function MakePicks({ data, pick, setPick, addPicks, labels }) {
 			}
 		}
 	}
-
-	console.log(pick);
 
 	// set background color for selected teams.
 	$(document).ready(function () {
@@ -31,31 +32,20 @@ function MakePicks({ data, pick, setPick, addPicks, labels }) {
 
 	return (
 		<div className='make-picks-page'>
-			{/* SHOW POPUP AFTER CHOOSING PICKS */}
-			{popUp ? (
-				<div className='popup'>
-					<PicksPopup
-						addPicks={addPicks}
-						pick={pick}
-						setPopUp={setPopUp}
-						setPick={setPick}
-					/>
+			{/* SHOW GAMES */}
+			<div className='make-picks-content'>
+				<div className='instructions'>
+					<PickInstructions data={data} />
 				</div>
-			) : (
-				// SHOW GAMES
-				<div className='make-picks-content'>
-					<div className='instructions-section'>
-						<PickInstructions data={data} />
-					</div>
+				{/* RENDER GAME BOXES  */}
+				<div className='games-container'>
+					{labels.map((item, index) => {
+						return <PickBox item={item} index={index} />;
+					})}
 
-					{/* RENDER GAME BOXES  */}
-					<div className='games-container'>
-						{labels.map((item, index) => {
-							return <PickBox item={item} index={index} />;
-						})}
-
-						{/* CHOOSE PICKS BUTTON  */}
-						<div className='btn-container'>
+					{/* CHOOSE PICKS BUTTON  */}
+					<div className='btn-container'>
+						{!pick.length >= 1 && (
 							<button
 								onClick={() => {
 									handleSubmit();
@@ -65,10 +55,22 @@ function MakePicks({ data, pick, setPick, addPicks, labels }) {
 								className='add-btn'>
 								Add Picks
 							</button>
-						</div>
+						)}
 					</div>
 				</div>
-			)}
+				{/* SHOW POPUP AFTER CHOOSING PICKS */}
+				{popUp && (
+					<div className='popup'>
+						<PicksPopup
+							addPicks={addPicks}
+							pick={pick}
+							setPopUp={setPopUp}
+							setPick={setPick}
+							labels={labels}
+						/>
+					</div>
+				)}
+			</div>
 		</div>
 	);
 }

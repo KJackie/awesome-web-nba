@@ -1,67 +1,66 @@
-@import "../../styles/mixins.scss";
+@import '../../styles/mixins.scss';
 
+.instructions-content {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	.content-date {
+		font-size: 2rem;
+		font-family: 'Oswald', sans-serif;
+		width: 50%;
+		display: flex;
+		align-items: center;
+		margin-bottom: 2rem;
+	}
+	.instructions-text {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		font-family: 'Roboto';
+		width: 50%;
 
-.content {
- width: 100%;
- padding: 1rem 0;
- 
- .content-date {
-  font-size: 2.6rem;
-  font-family: "Oswald", sans-serif;
-
-  span {
-   font-weight: bold;
-   font-size: 4rem;
-  }
-  margin-bottom: 2rem;
- }
- .instructions {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  font-family: "Roboto";
-
-  p {
-   font-size: 1.4rem;
-  }
- }
+		p {
+			font-size: 1.2rem;
+			text-align: left;
+		}
+	}
 }
 
+// // LAPTOP SIZE
+// @include laptop {
+// 	.content {
+// 		.content-date {
+// 			font-size: 2.2rem;
+// 			span {
+// 				font-size: 3.2rem;
+// 			}
+// 		}
+// 		.instructions {
+// 			width: 90%;
+// 			p {
+// 				font-size: 1.2rem;
+// 			}
+// 		}
+// 	}
+// }
 
-// LAPTOP SIZE
-@include laptop {
- .content {
-  .content-date {
-   font-size: 2.2rem;
-   span {
-    font-size: 3.2rem;
-   }
-  }
-  .instructions {
-   width: 90%;
-   p {
-    font-size: 1.2rem;
-   }
-  }
- }
-}
-
-// PHONE SIZE
-@include phone {
- .content {
-  .content-date {
-   font-size: 2rem;
-   span {
-    font-size: 3.2rem;
-   }
-  }
-  .instructions {
-   width: 100%;
-   p {
-    font-size: 1rem;
-    font-family: "Roboto", sans-serif;
-
-   }
-  }
- }
-}
+// // PHONE SIZE
+// @include phone {
+// 	.content {
+// 		.content-date {
+// 			font-size: 2rem;
+// 			span {
+// 				font-size: 3.2rem;
+// 			}
+// 		}
+// 		.instructions {
+// 			width: 100%;
+// 			p {
+// 				font-size: 1rem;
+// 				font-family: 'Roboto', sans-serif;
+// 			}
+// 		}
+// 	}
+// }

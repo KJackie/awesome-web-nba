@@ -3,17 +3,18 @@
 .user-sub-nav {
 	position: absolute;
 	right: 0;
-	top: 2rem;
-	width: 380px;
+	width: 100vw;
 	height: 200px;
 	z-index: 9999;
-	padding: 1rem;
-	border-radius: 5px;
-	background-color: rgb(255, 255, 255);
-	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 10px 0px;
 	display: flex;
 	.user-box-contents {
-		width: 100%;
+		width: 380px;
+		margin-left: auto;
+		position: relative;
+		padding: 1rem;
+		background-color: #fff;
+		border-radius: 5px;
+		color: var(--secondary-color);
 		@include flexCol();
 		.user-box-top {
 			border-bottom: 1px solid lightgray;
@@ -41,7 +42,6 @@
 			width: 100%;
 			gap: 1rem;
 			.logout-btn {
-				margin-left: auto;
 			}
 			p {
 				cursor: pointer;

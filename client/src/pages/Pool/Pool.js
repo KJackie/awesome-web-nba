@@ -6,6 +6,7 @@ import UserContext from '../../context/UserContext';
 import UserPicks from './UserPicks/UserPicks';
 import PoolLabels from './PoolLabels/PoolLabels';
 import ExpertPicks from './ExpertPicks/ExpertPicks';
+import HomeNavbar from '../../components/Navbar/HomeNavbar';
 function Pool() {
 	let [poolData, setPoolData] = useState([]);
 	const [data, setData] = useState([]);
@@ -72,18 +73,21 @@ function Pool() {
 	});
 
 	return (
-		<div className='pool'>
-			<PoolLabels labels={labels} />
+		<>
+			<HomeNavbar />
+			<div className='pool'>
+				<PoolLabels labels={labels} />
 
-			<div className='all-picks'>
-				{poolData.map((item, index) => {
-					return <UserPicks item={item} labels={labels} />;
-				})}
-				{expertPicks.map((item, i) => {
-					return <ExpertPicks item={item} labels={labels} />;
-				})}
+				<div className='all-picks'>
+					{poolData.map((item, index) => {
+						return <UserPicks item={item} labels={labels} />;
+					})}
+					{expertPicks.map((item, i) => {
+						return <ExpertPicks item={item} labels={labels} />;
+					})}
+				</div>
 			</div>
-		</div>
+		</>
 	);
 }
 

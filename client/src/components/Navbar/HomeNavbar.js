@@ -8,14 +8,15 @@ import { FaCaretDown, FaUserAlt, FaBars } from 'react-icons/fa';
 import { useHistory } from 'react-router-dom';
 import UserBox from './UserBox';
 import Teams from './Dropdowns/Teams';
-function Navbar() {
+
+function Navbar({ setRegister, setLogin }) {
 	const [showTeams, setShowTeams] = useState(false);
 
 	function close() {
 		setShowTeams(false);
 	}
 
-	const { user } = useContext(UserContext);
+	const { user, logOut } = useContext(UserContext);
 
 	// GET USERNAME AND FAV TEAM
 	const [username, setUsername] = useState('');
@@ -32,16 +33,6 @@ function Navbar() {
 
 	const history = useHistory();
 
-	// LOGOUT USER
-
-	async function logOut() {
-		if (user) {
-			await axios.get(`${domain}/auth/logOut`);
-			await getUser();
-			history.push('/');
-		}
-	}
-
 	const [mobileNav, setMobileNav] = useState(false);
 	const [userNav, setUserNav] = useState(false);
 
@@ -49,7 +40,7 @@ function Navbar() {
 		<nav className='home-nav'>
 			<div className='brand'>
 				<Link to='/' className='link btn'>
-					<img src='../images/logo.svg' className='logo' alt='logo' />
+					<p> NBA Pickem </p>
 				</Link>
 			</div>
 			{/* navbar links for desktop view  */}
@@ -61,15 +52,13 @@ function Navbar() {
 					<Link to='/pool' className='link btn'>
 						Vew Pool
 					</Link>
-					<Link to='/games' className='link btn'>
-						Games
-					</Link>
-					<li
+
+					{/* <li
 						onMouseOver={() => setShowTeams(true)}
 						onMouseOut={() => close()}
 						className={showTeams ? 'active' : 'link'}>
 						Teams
-					</li>
+					</li> */}
 				</ul>
 				<Teams
 					showTeams={showTeams}
@@ -79,9 +68,9 @@ function Navbar() {
 			</div>
 
 			{/* navbar links for mobile view */}
-			{/* <p onClick={() => setMobileNav(!mobileNav)} className='mobile-user'>
+			<p onClick={() => setMobileNav(!mobileNav)} className='mobile-user'>
 				<FaBars />
-			</p> */}
+			</p>
 			<div className={mobileNav ? 'dropdown' : 'hide'}>
 				<div className='mobile-links'>
 					<ul>
@@ -94,9 +83,9 @@ function Navbar() {
 						<Link to='/pool' className='link btn'>
 							Vew Pool
 						</Link>
-						<Link to='/games' className='link btn'>
+						{/* <Link to='/games' className='link btn'>
 							Games
-						</Link>
+						</Link> */}
 
 						{user ? (
 							<Link
@@ -108,12 +97,22 @@ function Navbar() {
 							</Link>
 						) : (
 							<>
-								<Link to='/register' className='link btn'>
+								<p
+									className='link btn'
+									onClick={() => {
+										setRegister(true);
+										setMobileNav(false);
+									}}>
 									Register
-								</Link>
-								<Link to='/login' className='link btn last'>
+								</p>
+								<p
+									className='link btn last'
+									onClick={() => {
+										setLogin(true);
+										setMobileNav(false);
+									}}>
 									Login
-								</Link>
+								</p>
 							</>
 						)}
 					</ul>
@@ -127,12 +126,22 @@ function Navbar() {
 					</p>
 				) : (
 					<>
-						<Link to='/register' className='register'>
+						<p
+							className='register'
+							onClick={() => {
+								setRegister(true);
+								setMobileNav(false);
+							}}>
 							Register
-						</Link>
-						<Link to='/login' className='link'>
+						</p>
+						<p
+							className='login'
+							onClick={() => {
+								setLogin(true);
+								setMobileNav(false);
+							}}>
 							Login
-						</Link>
+						</p>
 					</>
 				)}
 

@@ -10,10 +10,9 @@ function PickBox({ item, index }) {
 					<label className='box'>
 						<input
 							type='radio'
-							name={item.home_team_id}
+							name={item.id}
 							id='radio'
 							value={item.home_team_id}
-							onClick={() => console.log(item.home_team_id)}
 						/>
 						<div className='logo'>
 							<img
@@ -50,7 +49,6 @@ function PickBox({ item, index }) {
 							id='radio'
 							value={item.road_team_id}
 							className='radio'
-							onClick={() => console.log(item.road_team_id)}
 						/>
 						<div className='team-id'>
 							<p> {item.road_team_id}</p>

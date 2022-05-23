@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Login from './components/Auth/Login';
-import Register from './components/Auth/Register';
 import Home from './pages/Home/Home';
-import HomeNavbar from './components/Navbar/HomeNavbar';
-import Navbar from './components/Navbar/Navbar';
 import domain from './util/domain';
-import Pool from './pages/Pool/Pool';
+
 import PicksPage from './pages/Picks/PicksPage';
-import Details from './pages/Team/Details';
-import Games from './components/Games/Games';
+import Pool from './pages/Pool/Pool';
+
 function Router() {
 	const [data, setData] = useState([]);
 	const [games, setGames] = useState([]);
@@ -50,35 +46,13 @@ function Router() {
 		<BrowserRouter>
 			<Switch>
 				<Route exact path='/'>
-					<HomeNavbar />
 					<Home gameAPI={gameAPI} />
 				</Route>
 				<Route exact path='/picks'>
-					<Navbar />
 					<PicksPage data={data} sortedGames={sortedGames} />
 				</Route>
 				<Route exact path='/pool'>
-					<Navbar />
 					<Pool />
-				</Route>
-				<Route path='/details'>
-					<HomeNavbar />
-					<Details />
-				</Route>
-				<Route exact path='/games'>
-					<Navbar />
-					<Games
-						games={games}
-						gameAPI={gameAPI}
-						date={date}
-						setDate={setDate}
-					/>
-				</Route>
-				<Route path='/login'>
-					<Login />
-				</Route>
-				<Route path='/register'>
-					<Register />
 				</Route>
 			</Switch>
 		</BrowserRouter>

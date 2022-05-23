@@ -1,25 +1,30 @@
-@import "../../styles/mixins.scss";
+@import '../../styles/mixins.scss';
 
+.register-page,
 .login-page {
-  width: 100%;
-  height: 100vh;
-  @include flexCenter()
-
-}
-
-.register-page {
-  width: 100%;
-  height: 100vh;
-  @include flexCenter()
-  
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	.register-overlay {
+		background-color: #000;
+		position: absolute;
+		width: 100vw;
+		height: 100vh;
+		left: 0;
+		top: 0;
+		opacity: 0.8;
+	}
 }
 
 // PHONE SIZE
 @include phone {
-  .register-page,
-  .login-page {
-   width: 100%;
-   height: 100vh;
-   display: flex;
-  }
+	.register-page,
+	.login-page {
+		width: 100%;
+		height: 100vh;
+		display: flex;
+	}
 }

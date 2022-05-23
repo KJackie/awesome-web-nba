@@ -1,10 +1,17 @@
 import React, { useContext, useState, useEffect } from 'react';
 import './Home.scss';
-import { Link } from 'react-router-dom';
 import UserContext from '../../context/UserContext';
 import DemoLogin from '../../components/Auth/DemoLogin';
 import domain from '../../util/domain';
+import HomeNavbar from '../../components/Navbar/HomeNavbar';
+import Register from '../../components/Auth/Register';
+import Login from '../../components/Auth/Login';
+import Flickity from 'react-flickity-component';
+
 function Home({ gameAPI }) {
+	const [register, setRegister] = useState(false);
+	const [login, setLogin] = useState(false);
+
 	const { user } = useContext(UserContext);
 
 	const [consensus, setConsensus] = useState([]);
@@ -17,9 +24,19 @@ function Home({ gameAPI }) {
 			});
 	}, []);
 
+	// default carousel cell start location
+	const flickityOptions = {
+		initialIndex: 1,
+		autoPlay: 5000,
+		wrapAround: true,
+		prevNextButtons: true,
+		arrowShape: true,
+	};
+
 	return (
-		<>
-			<div className='home-page'>
+		<div className='home-page'>
+			<HomeNavbar setRegister={setRegister} setLogin={setLogin} />
+			<div className='home-content'>
 				{!user ? (
 					<div className='left'>
 						<div className='title'>
@@ -31,9 +48,10 @@ function Home({ gameAPI }) {
 									nba picks against real players in the pool!
 								</p>
 								<div className='btns'>
-									<Link to='/register' className='register-btn'>
+									<p className='register-btn' onClick={() => setRegister(true)}>
 										Get started for free
-									</Link>
+									</p>
+									<p className='mobile'>or</p>
 									{!user && <DemoLogin />}
 								</div>
 							</div>
@@ -43,7 +61,7 @@ function Home({ gameAPI }) {
 					<div className='left'>
 						<div className='title'>
 							<div className='home-text'>
-								{consensus.length === 2 ? (
+								{consensus.length === 1 ? (
 									<>
 										<h1> Todays Top Pick </h1>
 										<p>The experts most confident pick.</p>
@@ -138,21 +156,38 @@ function Home({ gameAPI }) {
 				<h1 className='highlights-title'> Highlights / News </h1>
 
 				<div className='videos'>
-					{gameAPI?.videos?.map((item, index) => {
-						return (
-							<div className='video-box' key={index}>
-								<video
-									src={item.links.mobile.source.href}
-									controls='controls'
-									poster={item.thumbnail}></video>
-								<p className='headline'>{item.headline}</p>
-								<p className='description'>{item.description}</p>
-							</div>
-						);
-					})}
+					<Flickity
+						className={'carousel'} // default ''
+						elementType={'div'} // default 'div'
+						options={flickityOptions} // takes flickity options {}
+						disableImagesLoaded={false} // default false
+						reloadOnUpdate // default false
+						static // default false
+					>
+						{gameAPI?.videos?.map((item, index) => {
+							return (
+								<div className='video-box' key={index}>
+									<video
+										src={item.links.mobile.source.href}
+										controls='controls'
+										poster={item.thumbnail}></video>
+									<div className='video-text'>
+										<p className='headline'>{item.headline}</p>
+										<p className='description'>{item.description}</p>
+									</div>
+								</div>
+							);
+						})}
+					</Flickity>
 				</div>
 			</div>
-		</>
+			{register && !user && (
+				<Register setRegister={setRegister} setLogin={setLogin} />
+			)}
+			{login && !user && (
+				<Login setLogin={setLogin} setRegister={setRegister} />
+			)}
+		</div>
 	);
 }
 

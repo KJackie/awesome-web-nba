@@ -1,0 +1,83 @@
+@import '../../styles/mixins.scss';
+
+.overlay {
+	background-color: #000;
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	top: -65px;
+	left: 0;
+	opacity: 0.6;
+}
+.popup-container {
+	border-radius: 3px;
+	box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.2);
+	background-color: white;
+	position: absolute;
+	left: 0;
+	right: 0;
+	z-index: 9999;
+	font-family: var(--secondaryFont);
+	@include flexCol();
+	padding: 2rem;
+	justify-content: center;
+	width: 50vw;
+	height: 70vh;
+	transform: translate(50%, 15%);
+	.chosen-picks {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		p {
+			font-size: 1.2rem;
+		}
+		.popup-logo {
+			max-width: 100px;
+		}
+	}
+	.btn-container-popup {
+		width: 100%;
+		height: 75px;
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+	}
+}
+
+// PHONE SIZE
+@include phone {
+	.popup-container {
+		width: 100%;
+		left: 0;
+		height: 60vh;
+		.popup-content {
+			width: 100%;
+			.chosen-picks {
+				display: flex;
+				justify-content: flex-start;
+				overflow-x: scroll;
+				gap: 1rem;
+				margin: 2rem 0;
+				.popup-logo {
+					max-width: 60px;
+				}
+			}
+			.mobile-info {
+				display: block;
+				height: 50px;
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+			}
+		}
+		.btn-container-popup {
+			.btn {
+				width: 100%;
+				background-color: red;
+			}
+		}
+	}
+}

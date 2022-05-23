@@ -11,15 +11,12 @@
 		height: 40px;
 		display: flex;
 		align-items: center;
-		&:hover {
-			color: var(--secondary-color);
-			transition: all 100ms ease-in-out;
-		}
+		color: var(--text-color);
 		.right-arrow {
 			height: 100%;
 			margin-left: 0.5rem;
-			color: var(--secondary-color);
 			font-weight: bolder;
+			color: var(--lighter-primary);
 		}
 	}
 }

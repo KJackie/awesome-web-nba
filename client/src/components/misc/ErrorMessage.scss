@@ -1,11 +1,17 @@
 .error-message {
- color: #9D1C24;
- width: 85%;
- margin: 0 auto;
- display: flex;
- justify-content: space-between;
- background-color: #F8D7DA;
- border-radius: 4px;
- margin-top: 1rem;
- padding: 0.7rem;
+	color: #9d1c24;
+	width: 100%;
+	margin: 0 auto;
+	display: flex;
+	background-color: #f8d7da;
+	border-radius: 4px;
+	margin-top: 1rem;
+	padding: 0.7rem;
+	p {
+		width: 100%;
+	}
+	.clear-btn {
+		margin-left: auto;
+		width: auto;
+	}
 }
