@@ -9,7 +9,7 @@
 # NBA Pickem 
 ### Make daily NBA picks and compete against other players. Also, view live scores and betting odds for the upcomming games.
 
-![Screenshot 2022-05-22 232138](https://user-images.githubusercontent.com/84540947/169756088-14dc2fc5-cd1f-4c0d-86e3-14f01765e069.png)
+![Screenshot 2022-05-22 232226](https://user-images.githubusercontent.com/84540947/169756189-6bf396ed-c3ad-446f-91b9-8dda0eb5420f.png)
 
 
 ### This website is a daily NBA pickem pool where users can sign up and make daily NBA picks. Users can compete with eachother in the pool and be scored based on their correct picks. I also added ways for the user to view NBA highlights, scores (past, current, and upcomming) and can view betting odds. 
