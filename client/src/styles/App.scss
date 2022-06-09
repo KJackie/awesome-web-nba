@@ -1,9 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 @import './variables.scss';
 @import './mixins.scss';
 @import './forms.scss';
 
+// Roboto - google font
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+// Oswald - google font
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Roboto&display=swap');
+
+// Source sans pro - google font - for gamebar
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap');
 
 * {
 	margin: 0;
@@ -12,7 +17,7 @@
 }
 
 html {
-	background-color: var(--secondary-color);
+	background-color: var(--primary-color);
 }
 
 .App {
@@ -38,6 +43,10 @@ a {
 	color: unset;
 	text-decoration: unset;
 	@include link();
+}
+
+ul {
+	list-style-type: none;
 }
 
 input,

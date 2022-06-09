@@ -1,58 +1,67 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Home from './pages/Home/Home';
 import domain from './util/domain';
-
-import PicksPage from './pages/Picks/PicksPage';
-import Pool from './pages/Pool/Pool';
+import Home from './pages/home/Home';
+import PicksPage from './pages/picks/PicksPage';
+import Navbar from './components/navbar/Navbar';
+import PoolPage from './pages/pool/PoolPage';
+import UserContext from './context/UserContext';
 
 function Router() {
 	const [data, setData] = useState([]);
-	const [games, setGames] = useState([]);
+	const [expertPicks, setExpertPicks] = useState([]);
+	const [videos, setVideos] = useState([]);
 
+	// get todays date and pass as param in fetch request
+	let today = new Date();
+	let res = today.toISOString().slice(0, 10).replace(/-/g, '');
+	let theDate = Number(res);
+	let [date, setDate] = useState(theDate);
+
+	// fetch schedule from backend
 	useEffect(() => {
-		fetch(`${domain}/schedule`)
+		fetch(`${domain}/schedule/${date - 1}`)
 			.then((res) => res.json())
 			.then((data) => {
-				setData(data[1].eventList);
+				setData(data.events);
+				setVideos(data.videos);
 			});
 	}, []);
 
-	var sortedGames = data.sort(function (a, b) {
-		return a.eventId - b.eventId;
+	// sort games by id
+	let sortedGames = data.sort(function (a, b) {
+		return a.date - b.date;
 	});
 
-	const [gameAPI, setGameAPI] = useState([]);
+	const [register, setRegister] = useState(false);
+	const [login, setLogin] = useState(false);
 
-	let today = new Date();
-	var res = today.toISOString().slice(0, 10).replace(/-/g, '');
-	let theDate = Number(res);
-
-	let [date, setDate] = useState(theDate);
-
-	useEffect(() => {
-		fetch(
-			`https://site.web.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?region=us&lang=en&contentorigin=espn&limit=100&calendartype=blacklist&includeModules=videos%2Ccards&dates=${date}&tz=America%2FNew_York&buyWindow=1m&showAirings=buy%2Clive&showZipLookup=true`
-		)
-			.then((response) => {
-				return response.json();
-			})
-			.then((data) => {
-				setGameAPI(data);
-			});
-	}, [theDate, date]);
+	const { user } = useContext(UserContext);
 
 	return (
 		<BrowserRouter>
+			<Navbar
+				setRegister={setRegister}
+				setLogin={setLogin}
+				register={register}
+				login={login}
+			/>
 			<Switch>
 				<Route exact path='/'>
-					<Home gameAPI={gameAPI} />
+					<Home
+						sortedGames={sortedGames}
+						setRegister={setRegister}
+						setLogin={setLogin}
+						register={register}
+						login={login}
+						videos={videos}
+					/>
 				</Route>
 				<Route exact path='/picks'>
-					<PicksPage data={data} sortedGames={sortedGames} />
+					<PicksPage sortedGames={sortedGames} />
 				</Route>
 				<Route exact path='/pool'>
-					<Pool />
+					<PoolPage item={expertPicks} labels={data} />
 				</Route>
 			</Switch>
 		</BrowserRouter>

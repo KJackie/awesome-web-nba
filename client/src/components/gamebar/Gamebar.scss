@@ -1,0 +1,110 @@
+.top-gamebar {
+	display: flex;
+	height: 100px;
+	box-shadow: var(--box-shadow);
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+.date {
+	min-width: 55px;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	text-transform: uppercase;
+	flex-direction: column;
+	border-right: 1px solid lightgray;
+	padding: 0 1rem;
+	background-color: #fff;
+	font-weight: bold;
+}
+.gamebar {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	overflow-x: scroll;
+	padding: 0.5rem;
+	gap: 1rem;
+	background-color: #fff;
+	&::-webkit-scrollbar {
+		display: none;
+	}
+
+	.game-box {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		min-width: 160px;
+		padding: 0.2rem 1rem;
+		border: 1px solid lightgray;
+		border-radius: 8px;
+		.status {
+			font-size: 0.8rem;
+			color: gray;
+		}
+		.home,
+		.away {
+			display: flex;
+			align-items: center;
+			max-height: 20px;
+			gap: 0.25rem;
+			position: relative;
+			.logo-container {
+				height: 100%;
+				position: relative;
+				width: 20%;
+				padding-right: 0.8rem;
+				.logo {
+					height: 90%;
+				}
+			}
+			.name {
+				width: 30%;
+				font-weight: 600;
+			}
+			.score,
+			.record {
+				margin-left: auto;
+			}
+			.score {
+				width: 10%;
+			}
+			.record {
+				font-size: 0.7rem;
+				margin-right: auto;
+				color: gray;
+			}
+		}
+	}
+}
+
+.scroll-controls {
+	min-width: 125px;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.3rem;
+	font-family: var(--secondaryFont);
+	border-left: 1px solid lightgray;
+	justify-content: center;
+	padding: 0 1rem;
+	background-color: #fff;
+	gap: 0.65rem;
+	.left,
+	.right {
+		padding: 0.5rem;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: 1px solid lightgray;
+		font-size: 0.9rem;
+		color: var(--secondary-color-lighter);
+		&:hover {
+			background-color: #ededed;
+			cursor: pointer;
+		}
+	}
+}

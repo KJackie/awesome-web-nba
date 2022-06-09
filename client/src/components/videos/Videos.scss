@@ -1,0 +1,23 @@
+.videos {
+	background-color: orange;
+	height: 50vh;
+	position: relative;
+	.carousel {
+		background-color: lime;
+		height: 100%;
+		position: relative;
+		.video-box {
+			width: 80%;
+			background-color: dodgerblue;
+			height: 100%;
+			position: relative;
+			display: flex;
+			padding: 0 2rem;
+			margin: 0 auto;
+			video {
+				width: 50%;
+				height: 50vh;
+			}
+		}
+	}
+}

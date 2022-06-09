@@ -1,0 +1,162 @@
+@import '../../styles/mixins.scss';
+.player-pick-box {
+	display: flex;
+	height: 50px;
+	align-items: center;
+	width: 100%;
+	margin: 0 auto;
+
+	padding: 0 1rem;
+	padding-right: 0;
+	&:nth-of-type(odd) {
+		background-color: #e7e7e7;
+	}
+	.pick {
+		height: 100%;
+		display: flex;
+		align-items: center;
+		width: 15%;
+		border-right: 1px solid lightgray;
+		.user-email {
+			color: dodgerblue;
+		}
+	}
+	.show-picks {
+		display: flex;
+		height: 100%;
+		width: 100%;
+		.pick-box {
+			height: 100%;
+			display: flex;
+			align-items: center;
+			width: 100%;
+			justify-content: center;
+			border-right: 1px solid lightgray;
+			.winner-logo,
+			.loser-logo,
+			.logo {
+				max-width: 33px;
+				height: 24px;
+			}
+			.winner-logo,
+			.loser-logo {
+				border-radius: 4px;
+				width: 100%;
+			}
+			.winner-logo {
+				outline: 2px solid #28a745;
+			}
+			.loser-logo {
+				outline: 2px solid #dc3545;
+			}
+		}
+	}
+}
+
+.label-container {
+	margin-bottom: 1rem;
+	display: flex;
+	padding: 0 1rem;
+	padding-right: 0;
+	.labels {
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+		.name-label {
+			width: 15%;
+			display: flex;
+			align-items: center;
+		}
+		.record-label {
+			width: 15%;
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+		}
+		.matchups {
+			display: flex;
+			width: 100%;
+			.label-box {
+				width: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+
+				p {
+					margin: 0.05rem 0;
+					height: 100%;
+				}
+				.live {
+					color: red;
+				}
+				.final {
+					color: gray;
+				}
+
+				.live {
+					animation: blinker 1.2s linear infinite;
+				}
+
+				@keyframes blinker {
+					50% {
+						opacity: 0;
+					}
+				}
+				.score {
+					font-size: 0.8rem;
+					font-weight: bold;
+					display: flex;
+					align-items: center;
+				}
+				.winner {
+					color: var(--text-color);
+				}
+				.losing {
+					color: var(--text-color);
+				}
+			}
+		}
+	}
+}
+
+.user-pick {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	gap: 0.5rem;
+	.winner {
+		background-color: var(--accent);
+		width: 55px;
+		@include flexCol();
+		@include flexCenter();
+		width: 100%;
+		box-shadow: var(--box-shadow);
+		border-radius: 4px;
+		img {
+			width: 45px;
+		}
+	}
+	.loser {
+		background-color: #f02323;
+		width: 55px;
+		@include flexCol();
+		@include flexCenter();
+		width: 100%;
+		box-shadow: var(--box-shadow);
+		border-radius: 4px;
+		img {
+			width: 45px;
+		}
+	}
+	.picked-logo {
+		width: 100%;
+		@include alignCenter();
+
+		position: relative;
+		justify-content: center;
+		img {
+			width: 45px;
+		}
+	}
+}

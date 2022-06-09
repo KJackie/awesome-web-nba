@@ -5,7 +5,8 @@
 	height: 100%;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items: flex-start;
+	padding: 2rem 0;
 	.content-date {
 		font-size: 2rem;
 		font-family: 'Oswald', sans-serif;
@@ -46,21 +47,22 @@
 // 	}
 // }
 
-// // PHONE SIZE
-// @include phone {
-// 	.content {
-// 		.content-date {
-// 			font-size: 2rem;
-// 			span {
-// 				font-size: 3.2rem;
-// 			}
-// 		}
-// 		.instructions {
-// 			width: 100%;
-// 			p {
-// 				font-size: 1rem;
-// 				font-family: 'Roboto', sans-serif;
-// 			}
-// 		}
-// 	}
-// }
+// PHONE SIZE
+@include phone {
+	.instructions-content {
+		.content-date {
+			font-size: 2rem;
+			width: 100%;
+			span {
+				font-size: 3.2rem;
+			}
+		}
+		.instructions-text {
+			width: 100%;
+			p {
+				font-size: 1rem;
+				font-family: 'Roboto', sans-serif;
+			}
+		}
+	}
+}

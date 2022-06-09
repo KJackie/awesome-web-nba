@@ -1,0 +1,86 @@
+@import '../styles/mixins.scss';
+
+.auth-form-register,
+.auth-form-login {
+	@include card();
+	width: 66vh;
+	height: 90vh;
+	font-family: 'Roboto', sans-serif;
+	box-shadow: var(--box-shadow);
+	padding: 1rem;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	transform: translate(0, 5%);
+	background-color: #fff;
+
+	color: var(--lighter-primary);
+
+	.close-modal {
+		position: absolute;
+		right: 1rem;
+		top: 1rem;
+		cursor: pointer;
+	}
+
+	h2 {
+		margin-bottom: 1rem;
+		width: 100%;
+		margin: 0 auto;
+		font-size: 2rem;
+	}
+
+	.submit-btn {
+		@include btn();
+		background: var(--secondary-color);
+		color: var(--primary-color);
+		height: 45px;
+		display: block;
+		position: relative;
+		margin-bottom: 1rem;
+		margin-top: 2rem;
+	}
+
+	.login-link {
+		text-align: center;
+		position: relative;
+		top: 30px;
+	}
+
+	.form-inputs {
+		width: 100%;
+		margin-top: 1rem;
+	}
+	button {
+		width: 100%;
+	}
+	.register-link {
+		text-align: center;
+		height: 50px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		span {
+			color: var(--secondary-color);
+			cursor: pointer;
+		}
+	}
+}
+
+// PHONE SIZE
+@include phone {
+	.auth-form-register,
+	.auth-form-login {
+		width: 100vw;
+		position: absolute;
+		top: 0;
+		height: auto;
+		transform: none;
+		h2 {
+			width: 100%;
+			font-family: 'Oswald';
+			font-size: 2rem;
+		}
+	}
+}

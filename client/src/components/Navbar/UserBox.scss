@@ -23,15 +23,15 @@
 			font-family: var(--primaryFont);
 			font-size: 1.2rem;
 			width: 100%;
+			padding-bottom: 1rem;
 			img {
-				max-width: 50px;
+				max-width: 30px;
 			}
 		}
 
 		.user-links {
 			border-bottom: 1px solid lightgray;
 			a {
-				font-weight: lighter;
 			}
 		}
 		.user-controls,
